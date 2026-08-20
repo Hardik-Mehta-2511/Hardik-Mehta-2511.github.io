@@ -50,3 +50,9 @@ document.querySelectorAll('.visible').forEach(el => {
   el.style.opacity = '1';
   el.style.transform = 'translateY(0)';
 });
+
+document.querySelectorAll('.mobile-menu a').forEach(link => {
+  link.addEventListener('click', () => {
+    link.closest('.mobile-menu')?.removeAttribute('open');
+  });
+});
