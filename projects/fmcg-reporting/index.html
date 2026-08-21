@@ -3,61 +3,92 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Automated FMCG Reporting case study — Hardik Mehta.">
-  <title>Automated FMCG Reporting | Hardik Mehta</title>
+  <meta name="description" content="FMCG Reporting Automation case study — Hardik Mehta.">
+  <title>FMCG Reporting Automation | Hardik Mehta</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../../styles.css">
+  <style>
+    .excel-copy { max-width:720px; color:#aab8cb; font-size:14px; }
+    .excel-copy p { margin:0 0 20px; }
+    .excel-copy p:last-child { margin-bottom:0; }
+    .excel-placeholder { display:grid; gap:7px; min-height:150px; margin-top:28px; padding:25px; border:1px dashed #395173; border-radius:10px; background:repeating-linear-gradient(135deg,#0a1528,#0a1528 10px,#0c1930 10px,#0c1930 20px); text-align:center; place-content:center; }
+    .excel-placeholder.tall { min-height:210px; }
+    .excel-placeholder.gif { min-height:190px; border-color:#8b5cf6; }
+    .excel-placeholder strong { color:#b9a9f7; font-size:10px; letter-spacing:.16em; }
+    .excel-placeholder span { color:#8fa2bb; font-size:12px; }
+    .excel-placeholder-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; margin-top:28px; }
+    .excel-placeholder-grid .excel-placeholder { margin-top:0; }
+    .excel-card-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:14px; margin-top:28px; }
+    .excel-card-grid article, .excel-steps article { min-width:0; min-height:150px; padding:22px; border:1px solid var(--border); border-radius:10px; background:rgba(10,19,37,.75); }
+    .excel-card-grid span, .excel-steps span { color:var(--blue); font-size:10px; font-weight:700; letter-spacing:.1em; }
+    .excel-card-grid h3, .excel-steps h3 { margin:17px 0 8px; font-size:16px; }
+    .excel-card-grid p, .excel-steps p { margin:0; color:var(--muted); font-size:12px; line-height:1.55; }
+    .excel-steps { display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); gap:10px; margin-top:28px; }
+    .excel-steps article { min-height:135px; padding:18px; }
+    .excel-steps h3 { font-size:14px; margin-top:14px; }
+    .excel-workflow { display:grid; grid-template-columns:repeat(6,minmax(0,1fr)); gap:8px; margin-top:28px; }
+    .excel-workflow article { min-width:0; min-height:130px; padding:16px; border:1px solid var(--border); border-radius:10px; background:rgba(10,19,37,.78); }
+    .excel-workflow span { color:var(--blue); font-size:10px; font-weight:700; letter-spacing:.1em; }
+    .excel-workflow h3 { margin:14px 0 8px; font-size:14px; }
+    .excel-workflow p { margin:0; color:var(--muted); font-size:11px; line-height:1.45; }
+    .excel-workflow b { display:none; }
+    .excel-callout { margin-top:28px; padding:22px; border:1px solid #243653; border-radius:10px; background:linear-gradient(145deg,rgba(13,25,48,.94),rgba(8,17,33,.9)); }
+    .excel-callout strong, .excel-callout span { display:block; }
+    .excel-callout strong { color:#c4b5fd; font-size:13px; letter-spacing:.08em; }
+    .excel-callout span { margin-top:6px; color:#aab8cb; font-size:13px; }
+    @media (max-width:1000px) { .excel-card-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } .excel-steps { grid-template-columns:repeat(3,minmax(0,1fr)); } .excel-workflow { grid-template-columns:repeat(3,minmax(0,1fr)); } }
+    @media (max-width:700px) { .excel-placeholder-grid, .excel-card-grid { grid-template-columns:1fr; } .excel-steps, .excel-workflow { grid-template-columns:1fr; } }
+  </style>
 </head>
 <body class="rag-layout">
   <header class="site-header">
-    <a class="brand" href="../../index.html">
-      <span class="brand-mark">HM</span>
-      <span><strong>HARDIK MEHTA</strong><small>DATA &amp; AI</small></span>
-    </a>
-    <nav class="main-nav" aria-label="Project navigation">
-      <a href="../../index.html#projects">Projects</a>
-    </nav>
-    <div class="header-actions">
-      <a href="#" data-placeholder-url="github-profile" aria-label="GitHub">GitHub</a>
-      <a href="#" data-placeholder-url="linkedin-profile" aria-label="LinkedIn">LinkedIn</a>
-      <a class="outline-btn small" href="#" data-placeholder-url="resume">Resume</a>
-    </div>
-    <details class="mobile-menu">
-      <summary aria-label="Open navigation menu"><span></span><span></span><span></span></summary>
-      <div class="mobile-menu-panel">
-        <nav aria-label="Mobile project navigation"><a href="../../index.html#projects">Projects</a></nav>
-        <div class="mobile-menu-links">
-          <a href="#" data-placeholder-url="github-profile">GitHub</a>
-          <a href="#" data-placeholder-url="linkedin-profile">LinkedIn</a>
-          <a class="outline-btn small" href="#" data-placeholder-url="resume">Resume</a>
-        </div>
-      </div>
-    </details>
+    <a class="brand" href="../../index.html"><span class="brand-mark">HM</span><span><strong>HARDIK MEHTA</strong><small>DATA &amp; AI</small></span></a>
+    <nav class="main-nav" aria-label="Project navigation"><a href="../../index.html#projects">Projects</a></nav>
+    <div class="header-actions"><a href="#" data-placeholder-url="github-profile" aria-label="GitHub">GitHub</a><a href="#" data-placeholder-url="linkedin-profile" aria-label="LinkedIn">LinkedIn</a><a class="outline-btn small" href="#" data-placeholder-url="resume">Resume</a></div>
+    <details class="mobile-menu"><summary aria-label="Open navigation menu"><span></span><span></span><span></span></summary><div class="mobile-menu-panel"><nav aria-label="Mobile project navigation"><a href="../../index.html#projects">Projects</a></nav><div class="mobile-menu-links"><a href="#" data-placeholder-url="github-profile">GitHub</a><a href="#" data-placeholder-url="linkedin-profile">LinkedIn</a><a class="outline-btn small" href="#" data-placeholder-url="resume">Resume</a></div></div></details>
   </header>
 
   <main class="project-page rag-page">
-    <section class="project-hero section-shell">
-      <a class="rag-back-link" href="../../index.html#projects">← Back to Projects</a>
-      <p class="eyebrow">PROJECT 04 • AUTOMATION &amp; BI</p>
-      <h1>Automated FMCG <span>Reporting</span></h1>
-      <p class="lead">An automated reporting workflow that transforms recurring FMCG data into reliable, refreshable business reports.</p>
-      <div class="tags large"><span>Excel</span><span>Power Query</span><span>VBA</span><span>Power BI</span></div>
-    </section>
+    <section class="project-hero section-shell"><a class="rag-back-link" href="../../index.html#projects">← Back to Projects</a><p class="eyebrow">PROJECT 04 • EXCEL AUTOMATION</p><h1>FMCG Reporting <span>Automation</span></h1><p class="lead">An automated Excel reporting workflow using Power Query and VBA to transform incoming data, refresh reports, and monitor reporting activity.</p><div class="tags large"><span>Excel</span><span>Power Query</span><span>VBA</span><span>Data Automation</span></div></section>
 
     <section class="section-shell case-study-grid"><article class="case-study-main">
       <section id="presentation" class="case-section"><p class="content-label">01 · PRESENTATION</p><h2>Presentation</h2><div class="rag-placeholder-card"><div class="rag-presentation-viewer" role="region" aria-label="Project presentation viewer"><p>The project presentation will be embedded here.</p></div></div></section>
-      <section id="overview" class="case-section"><p class="content-label">02 · PROJECT OVERVIEW</p><h2>Project Overview</h2><p class="placeholder-copy">Project overview content will be added here.</p></section>
-      <section id="business-question" class="case-section"><p class="content-label">03 · BUSINESS QUESTION</p><h2>Business Question</h2><p class="placeholder-copy">The central business question will be documented here.</p></section>
-      <section id="methodology" class="case-section"><p class="content-label">04 · APPROACH / METHODOLOGY</p><h2>Approach / Methodology</h2><p class="placeholder-copy">The data refresh, transformation, automation and reporting workflow will be documented here.</p></section>
-      <section id="findings" class="case-section"><p class="content-label">05 · KEY FINDINGS</p><h2>Key Findings</h2><p class="placeholder-copy">Verified findings and supporting analysis will be added here.</p></section>
-      <section id="impact" class="case-section"><p class="content-label">06 · BUSINESS IMPACT / CONCLUSION</p><h2>Business Impact / Conclusion</h2><p class="placeholder-copy">The final impact and conclusion will be added after the project analysis is complete.</p></section>
-      <section id="walkthrough" class="case-section"><p class="content-label">07 · PROJECT WALKTHROUGH / VISUALS</p><h2>Project Walkthrough / Visuals</h2><div class="case-placeholder">Screenshots, diagrams and project visuals will be added here.</div></section>
-      <section id="readme" class="case-section"><p class="content-label">08 · DETAILED PROJECT DOCUMENTATION / README</p><h2>Detailed Project Documentation / README</h2><div class="case-placeholder">Detailed documentation will be added here.</div></section>
-      <section id="github" class="case-section"><p class="content-label">09 · GITHUB</p><h2>GitHub</h2><div class="case-placeholder">The project repository link will be added here.</div></section>
+
+      <section id="overview" class="case-section"><p class="content-label">02 · PROJECT OVERVIEW</p><h2>Project Overview</h2><div class="excel-copy"><p>This project automates a recurring FMCG reporting workflow that would otherwise require repeated data preparation and report refreshing.</p><p>Incoming Excel files are processed through Power Query, consolidated into reporting data, and refreshed through a VBA-controlled workflow.</p><p>The process also provides visibility into refresh activity through status information and an audit log.</p></div><div class="excel-placeholder tall"><strong>REPORTING WORKFLOW OVERVIEW</strong><span>Workflow screenshot or diagram will be added here.</span></div></section>
+
+      <section id="challenge" class="case-section"><p class="content-label">03 · THE PROBLEM</p><h2>The Reporting Challenge</h2><div class="excel-copy"><p>Recurring Excel reports can become difficult to maintain when new files arrive regularly and the workflow requires repeated manual actions.</p><p>The reporting process needed a way to bring in new files, standardize the data, refresh consistently, and show whether the refresh completed.</p></div><div class="excel-callout"><strong>GOAL</strong><span>Build a repeatable reporting workflow that reduces manual intervention and makes the refresh process easier to monitor.</span></div></section>
+
+      <section id="data-intake" class="case-section"><p class="content-label">04 · DATA INGESTION</p><h2>Data Intake</h2><div class="excel-copy"><p>The workflow starts with incoming Excel files from a designated input folder.</p><p>Power Query brings these files into the reporting process, making the workflow easier to update when new inputs are added.</p></div><div class="excel-placeholder-grid"><div class="excel-placeholder tall"><strong>INPUT EXCEL FILES</strong><span>Incoming file screenshot will be added here.</span></div><div class="excel-placeholder tall"><strong>FOLDER-BASED DATA INGESTION</strong><span>Input-folder workflow visual will be added here.</span></div></div></section>
+
+      <section id="power-query" class="case-section"><p class="content-label">05 · POWER QUERY</p><h2>Power Query Transformation</h2><div class="excel-copy"><p>Power Query handles the transformation layer between incoming files and the reporting output.</p><p>The workflow combines files, cleans and standardizes the data, sets appropriate types, and prepares reporting-ready fields where required by the process.</p></div><div class="excel-placeholder-grid"><div class="excel-placeholder tall"><strong>POWER QUERY TRANSFORMATION WORKFLOW</strong><span>Transformation workflow screenshot will be added here.</span></div><div class="excel-placeholder tall"><strong>POWER QUERY QUERIES / APPLIED STEPS</strong><span>Power Query editor screenshot will be added here.</span></div></div></section>
+
+      <section id="reporting-model" class="case-section"><p class="content-label">06 · REPORTING MODEL</p><h2>From Transformed Data to Reporting</h2><div class="excel-copy"><p>The transformed data becomes the foundation for the Excel reporting layer.</p><p>The dashboard/report connects to the transformed data, so the underlying reporting structure does not need to be manually rebuilt for each reporting cycle.</p></div><div class="excel-placeholder tall"><strong>EXCEL REPORTING MODEL</strong><span>Reporting model screenshot will be added here.</span></div><div class="excel-placeholder"><strong>DATA REFRESH FLOW</strong><span>Data-to-report refresh flow will be added here.</span></div></section>
+
+      <section id="vba" class="case-section"><p class="content-label">07 · VBA AUTOMATION</p><h2>VBA Refresh Automation</h2><div class="excel-copy"><p>VBA controls the reporting refresh process and connects refresh execution with status and logging steps.</p><p>The workflow is designed around a clear sequence rather than a large block of exposed code.</p></div><div class="excel-steps"><article><span>01</span><h3>Start</h3><p>Start the refresh process.</p></article><article><span>02</span><h3>Trigger</h3><p>Trigger the workbook data refresh.</p></article><article><span>03</span><h3>Wait</h3><p>Wait for the refresh process to complete.</p></article><article><span>04</span><h3>Update</h3><p>Update refresh status information.</p></article><article><span>05</span><h3>Record</h3><p>Record the refresh activity.</p></article></div><div class="excel-placeholder gif tall"><strong>VBA REFRESH AUTOMATION</strong><span>Screen recording of the refresh macro will be added here.</span></div><div class="excel-placeholder"><strong>VBA MODULE / REFRESH LOGIC</strong><span>VBA module screenshot will be added here.</span></div></section>
+
+      <section id="monitoring" class="case-section"><p class="content-label">08 · REFRESH MONITORING</p><h2>Refresh Status &amp; Audit Log</h2><div class="excel-copy"><p>The project includes a refresh log that records activity from the reporting workflow.</p><p>Refresh information can be surfaced through the dashboard so users can confirm that a refresh occurred and review its activity record.</p></div><div class="excel-placeholder-grid"><div class="excel-placeholder tall"><strong>REFRESH LOG TABLE</strong><span>Refresh log screenshot will be added here.</span></div><div class="excel-placeholder tall"><strong>DASHBOARD REFRESH STATUS PANEL</strong><span>Status-panel screenshot will be added here.</span></div></div></section>
+
+      <section id="workflow" class="case-section"><p class="content-label">09 · AUTOMATED WORKFLOW</p><h2>End-to-End Reporting Workflow</h2><div class="excel-workflow"><article><span>01</span><h3>Input</h3><p>Incoming Excel files.</p></article><article><span>02</span><h3>Transform</h3><p>Power Query cleans and consolidates the data.</p></article><article><span>03</span><h3>Refresh</h3><p>The reporting model is refreshed.</p></article><article><span>04</span><h3>Automate</h3><p>VBA controls the refresh workflow.</p></article><article><span>05</span><h3>Monitor</h3><p>Refresh activity is recorded.</p></article><article><span>06</span><h3>Report</h3><p>Updated information is available through the dashboard.</p></article></div><div class="excel-placeholder gif tall"><strong>END-TO-END AUTOMATION DEMONSTRATION</strong><span>End-to-end refresh screen recording will be added here.</span></div></section>
+
+      <section id="dashboard" class="case-section"><p class="content-label">10 · DASHBOARD</p><h2>Reporting Dashboard</h2><div class="excel-copy"><p>The final reporting layer presents transformed information through an Excel dashboard.</p><p>The dashboard status area can provide visibility into refresh activity without inventing unsupported KPI claims.</p></div><div class="excel-placeholder tall"><strong>FMCG DASHBOARD</strong><span>Excel dashboard screenshot will be added here.</span></div><div class="excel-placeholder"><strong>DASHBOARD STATUS / REFRESH INFORMATION</strong><span>Dashboard status screenshot will be added here.</span></div></section>
+
+      <section id="testing" class="case-section"><p class="content-label">11 · TESTING &amp; VALIDATION</p><h2>Testing the Workflow</h2><div class="excel-copy"><p>The workflow was tested by changing the input files and checking whether the reporting process responded correctly.</p><p>An additional input file was introduced during testing to verify that ingestion and refresh handled new data.</p></div><div class="excel-card-grid"><article><span>ADD INPUT</span><h3>Test with an additional file</h3><p>Introduce another input file to the workflow.</p></article><article><span>REFRESH</span><h3>Run the automated refresh</h3><p>Run the refresh process through the workbook workflow.</p></article><article><span>VERIFY</span><h3>Check the result</h3><p>Review the report and refresh information.</p></article></div><div class="excel-placeholder gif"><strong>REFRESH TEST DEMONSTRATION</strong><span>Input-change and refresh test recording will be added here.</span></div></section>
+
+      <section id="takeaways" class="case-section"><p class="content-label">12 · KEY TAKEAWAYS</p><h2>Key Takeaways</h2><div class="excel-card-grid"><article><span>AUTOMATED DATA PREPARATION</span><h3>Repeatable transformation</h3><p>Power Query provides a repeatable transformation layer for incoming Excel data.</p></article><article><span>CONTROLLED REFRESH</span><h3>Coordinated workflow</h3><p>VBA coordinates the workbook refresh workflow.</p></article><article><span>REFRESH VISIBILITY</span><h3>Recorded activity</h3><p>The refresh log provides a record of reporting activity.</p></article><article><span>REUSABLE REPORTING WORKFLOW</span><h3>Ready for new inputs</h3><p>The process can be repeated as new input files are introduced.</p></article></div></section>
+
+      <section id="impact" class="case-section"><p class="content-label">13 · BUSINESS IMPACT / CONCLUSION</p><h2>Business Impact / Conclusion</h2><div class="excel-copy"><p>This project demonstrates how Excel can be used as more than a static reporting tool.</p><p>Power Query and VBA connect data preparation, report refreshing, and refresh monitoring into a more structured workflow.</p><p>The practical value is a more repeatable reporting process with easier refresh management and greater visibility into reporting activity.</p></div><div class="excel-callout"><strong>POWER QUERY + VBA</strong><span>Power Query handles the data transformation layer while VBA provides automation and refresh control, turning a recurring Excel reporting task into a more structured workflow.</span></div></section>
+
+      <section id="walkthrough" class="case-section"><p class="content-label">14 · PROJECT WALKTHROUGH / VISUALS</p><h2>Project Walkthrough / Visuals</h2><div class="excel-placeholder-grid"><div class="excel-placeholder tall"><strong>01 — INPUT FILES</strong><span>Input-file screenshot will be added here.</span></div><div class="excel-placeholder tall"><strong>02 — POWER QUERY</strong><span>Power Query screenshot will be added here.</span></div><div class="excel-placeholder tall"><strong>03 — DATA TRANSFORMATION</strong><span>Transformation screenshot will be added here.</span></div><div class="excel-placeholder tall"><strong>04 — EXCEL REPORTING</strong><span>Reporting screenshot will be added here.</span></div><div class="excel-placeholder gif tall"><strong>05 — VBA REFRESH</strong><span>Refresh screen recording will be added here.</span></div><div class="excel-placeholder tall"><strong>06 — REFRESH LOG</strong><span>Refresh-log screenshot will be added here.</span></div><div class="excel-placeholder tall"><strong>07 — DASHBOARD STATUS</strong><span>Status-panel screenshot will be added here.</span></div><div class="excel-placeholder gif tall"><strong>08 — END-TO-END REFRESH</strong><span>End-to-end screen recording will be added here.</span></div></div></section>
+
+      <section id="technology" class="case-section"><p class="content-label">15 · TECHNOLOGY</p><h2>Technology</h2><div class="tags large"><span>Microsoft Excel</span><span>Power Query</span><span>VBA</span><span>Excel Dashboard</span><span>Data Automation</span></div></section>
+
+      <section id="readme" class="case-section"><p class="content-label">16 · DETAILED PROJECT DOCUMENTATION / README</p><h2>Detailed Project Documentation / README</h2><div class="excel-copy"><p>Detailed implementation notes, Power Query transformations, VBA automation logic, and supporting project documentation will be provided here.</p></div><div class="case-placeholder">Detailed documentation will be added here.</div></section>
+
+      <section id="github" class="case-section"><p class="content-label">17 · GITHUB</p><h2>GitHub</h2><div class="case-placeholder">The project repository link will be added here.</div></section>
       <a class="back-projects" href="../../index.html#projects">← Back to Projects</a>
-    </article><aside class="project-sidebar case-study-sidebar"><div class="side-card"><p class="eyebrow">ON THIS PAGE</p><a href="#presentation">Presentation</a><a href="#overview">Project Overview</a><a href="#business-question">Business Question</a><a href="#methodology">Approach / Methodology</a><a href="#findings">Key Findings</a><a href="#impact">Business Impact / Conclusion</a><a href="#walkthrough">Project Walkthrough / Visuals</a><a href="#readme">Detailed Documentation / README</a><a href="#github">GitHub</a></div></aside></section>
+    </article><aside class="project-sidebar case-study-sidebar"><div class="side-card"><p class="eyebrow">ON THIS PAGE</p><a href="#presentation">Presentation</a><a href="#overview">Project Overview</a><a href="#challenge">The Reporting Challenge</a><a href="#data-intake">Data Intake</a><a href="#power-query">Power Query Transformation</a><a href="#reporting-model">Reporting Model</a><a href="#vba">VBA Refresh Automation</a><a href="#monitoring">Refresh Status &amp; Audit Log</a><a href="#workflow">End-to-End Reporting Workflow</a><a href="#dashboard">Reporting Dashboard</a><a href="#testing">Testing &amp; Validation</a><a href="#takeaways">Key Takeaways</a><a href="#impact">Business Impact / Conclusion</a><a href="#walkthrough">Project Walkthrough / Visuals</a><a href="#technology">Technology</a><a href="#readme">Detailed Project Documentation / README</a><a href="#github">GitHub</a></div></aside></section>
   </main>
 
   <footer class="site-footer">© 2026 Hardik Mehta · Data Analytics Portfolio</footer>
