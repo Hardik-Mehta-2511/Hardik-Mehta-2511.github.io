@@ -5,48 +5,81 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Book Intelligence RAG case study — Hardik Mehta.">
   <title>Book Intelligence RAG | Hardik Mehta</title>
-  <meta http-equiv="refresh" content="0; url=../rag.html">
-  <script>window.location.replace('../rag.html');</script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../../styles.css">
 </head>
-<body>
+<body class="rag-layout">
   <header class="site-header">
-    <a class="brand" href="../../index.html"><span class="brand-mark">HM</span><span><strong>HARDIK MEHTA</strong><small>DATA &amp; AI</small></span></a>
-    <nav class="main-nav"><a href="../../index.html#projects">← Back to Projects</a></nav>
-    <div class="header-actions"><a class="outline-btn small" href="#github">GitHub</a></div>
+    <a class="brand" href="../../index.html">
+      <span class="brand-mark">HM</span>
+      <span><strong>HARDIK MEHTA</strong><small>DATA &amp; AI</small></span>
+    </a>
+    <nav class="main-nav" aria-label="Project navigation">
+      <a href="../../index.html#projects">Projects</a>
+    </nav>
+    <div class="header-actions">
+      <a href="#" data-placeholder-url="github-profile" aria-label="GitHub">GitHub</a>
+      <a href="#" data-placeholder-url="linkedin-profile" aria-label="LinkedIn">LinkedIn</a>
+      <a class="outline-btn small" href="#" data-placeholder-url="resume">Resume</a>
+    </div>
+    <details class="mobile-menu">
+      <summary aria-label="Open navigation menu"><span></span><span></span><span></span></summary>
+      <div class="mobile-menu-panel">
+        <nav aria-label="Mobile project navigation"><a href="../../index.html#projects">Projects</a></nav>
+        <div class="mobile-menu-links">
+          <a href="#" data-placeholder-url="github-profile">GitHub</a>
+          <a href="#" data-placeholder-url="linkedin-profile">LinkedIn</a>
+          <a class="outline-btn small" href="#" data-placeholder-url="resume">Resume</a>
+        </div>
+      </div>
+    </details>
   </header>
 
-  <main class="project-page case-study-page">
+  <main class="project-page rag-page">
     <section class="project-hero section-shell">
+      <a class="rag-back-link" href="../../index.html#projects">← Back to Projects</a>
       <p class="eyebrow">PROJECT 01 • AI &amp; DATA APPLICATIONS</p>
       <h1>Book Intelligence <span>RAG</span></h1>
-      <p class="lead">A RAG-powered book intelligence application built from data scraped from Books to Scrape.</p>
-      <div class="tags large"><span>Python</span><span>RAG</span><span>LLM</span><span>Web Scraping</span><span>Streamlit</span></div>
+      <p class="lead">A RAG-based application that uses book information scraped from Books to Scrape so users can interact with and query the book dataset.</p>
+      <div class="project-actions">
+        <a class="primary-btn" href="#">Live Demo <span>→</span></a>
+        <a class="outline-btn" href="#github">GitHub <span>→</span></a>
+      </div>
     </section>
 
     <section class="section-shell case-study-grid">
       <article class="case-study-main">
-        <section id="overview" class="case-section"><p class="content-label">01 · PROJECT OVERVIEW</p><h2>Project Overview</h2><p class="placeholder-copy">Project overview content will be added here.</p></section>
-        <section id="business-question" class="case-section"><p class="content-label">02 · BUSINESS QUESTION</p><h2>Business Question</h2><p class="placeholder-copy">The central business question will be documented here.</p></section>
-        <section id="methodology" class="case-section"><p class="content-label">03 · APPROACH / METHODOLOGY</p><h2>Approach / Methodology</h2><p class="placeholder-copy">The data collection, retrieval, analysis and application workflow will be documented here.</p></section>
-        <section id="findings" class="case-section"><p class="content-label">04 · KEY FINDINGS</p><h2>Key Findings</h2><p class="placeholder-copy">Verified findings and supporting analysis will be added here.</p></section>
-        <section id="impact" class="case-section"><p class="content-label">05 · BUSINESS IMPACT / CONCLUSION</p><h2>Business Impact / Conclusion</h2><p class="placeholder-copy">The final impact and conclusion will be added after the project analysis is complete.</p></section>
-        <section id="walkthrough" class="case-section"><p class="content-label">06 · PROJECT WALKTHROUGH / VISUALS</p><h2>Project Walkthrough / Visuals</h2><div class="case-placeholder">Screenshots, diagrams and project visuals will be added here.</div></section>
-        <section id="presentation" class="case-section"><p class="content-label">07 · PRESENTATION</p><h2>Presentation</h2><div class="case-placeholder">The project presentation will be embedded here.</div></section>
-        <section id="readme" class="case-section"><p class="content-label">08 · DETAILED PROJECT DOCUMENTATION / README</p><h2>Detailed Project Documentation / README</h2><div class="case-placeholder">Detailed documentation will be added here.</div></section>
-        <section id="demo" class="case-section"><p class="content-label">09 · LIVE DEMO</p><h2>Interactive Demo</h2><div class="case-placeholder">The deployed Streamlit demo link will be added here.</div></section>
-        <section id="github" class="case-section"><p class="content-label">10 · GITHUB</p><h2>GitHub</h2><div class="case-placeholder">The project repository link will be added here.</div></section>
+        <section id="presentation" class="rag-section"><p class="eyebrow">01 · PRESENTATION PLACEHOLDER</p><h2>Project Presentation</h2><div class="rag-placeholder-card"><div class="rag-presentation-viewer" role="region" aria-label="Project presentation viewer"><p>Project presentation will be embedded here.</p></div></div></section>
+
+        <section id="overview" class="rag-two-column rag-section"><div><p class="eyebrow">02 · PROJECT OVERVIEW</p><h2>Project Overview</h2></div><div class="rag-copy"><p>This project uses web-scraped book data from Books to Scrape and a RAG-based application.</p><p>The application allows users to interact with and query the book dataset.</p></div></section>
+
+        <section id="challenge" class="rag-section rag-narrow-section"><p class="eyebrow">03 · THE PROBLEM</p><h2>The Challenge</h2><p class="rag-copy">A scraped book dataset is difficult to query on its own. This project adds a RAG-based application so users can interact with and query the available book information.</p></section>
+
+        <section id="solution" class="rag-section"><p class="eyebrow">04 · THE SOLUTION</p><h2>The Solution</h2><div class="rag-workflow" aria-label="Book Intelligence RAG workflow"><div class="rag-step"><span>01</span><strong>Books to Scrape</strong></div><b>↓</b><div class="rag-step"><span>02</span><strong>Web Scraping</strong></div><b>↓</b><div class="rag-step"><span>03</span><strong>Book Data</strong></div><b>↓</b><div class="rag-step"><span>04</span><strong>Processing / Preparation</strong></div><b>↓</b><div class="rag-step"><span>05</span><strong>RAG Pipeline</strong></div><b>↓</b><div class="rag-step"><span>06</span><strong>Intelligent User Interaction</strong></div></div></section>
+
+        <section id="how-it-works" class="rag-section"><p class="eyebrow">05 · HOW IT WORKS</p><h2>From Source To Response</h2><div class="rag-number-grid"><article><span>01</span><h3>Collect</h3><p>Book information is scraped from the Books to Scrape website.</p></article><article><span>02</span><h3>Prepare</h3><p>The scraped book data is processed and prepared for the RAG pipeline.</p></article><article><span>03</span><h3>Retrieve</h3><p>The RAG pipeline retrieves relevant information from the book dataset when a user interacts with the application.</p></article><article><span>04</span><h3>Generate</h3><p>The RAG-based application uses the retrieved book information to respond to user queries.</p></article></div></section>
+
+        <section id="features" class="rag-section"><p class="eyebrow">06 · KEY FEATURES</p><h2>Designed For Discovery</h2><div class="rag-feature-grid"><article><h3>Book Discovery</h3><p>Interact with the book dataset through the RAG-based application.</p></article><article><h3>Intelligent Querying</h3><p>Query the book dataset using the RAG pipeline.</p></article><article><h3>Retrieval-Based Responses</h3><p>Retrieved book information is used to respond to user queries.</p></article><article><h3>Web-Scraped Dataset</h3><p>The dataset is book information scraped from the Books to Scrape website.</p></article></div></section>
+
+        <section id="data-source" class="rag-two-column rag-section"><div><p class="eyebrow">07 · DATA SOURCE</p><h2>Books to Scrape</h2></div><div class="rag-copy"><p>Books to Scrape — book information scraped from the website.</p><a class="outline-btn" href="#">View Data Source <span>→</span></a></div></section>
+
+        <section id="technology" class="rag-section rag-narrow-section"><p class="eyebrow">08 · TECHNOLOGY</p><h2>Technology</h2><div class="tags large"><span>Python</span><span>RAG</span><span>LLM</span><span>Web Scraping</span><span>Streamlit</span></div></section>
+
+        <section id="outcomes" class="rag-two-column rag-section"><div><p class="eyebrow">09 · PROJECT OUTCOMES</p><h2>Why It Matters</h2></div><div class="rag-copy"><p>The project uses web-scraped book data and a RAG-based application to allow users to interact with and query the book dataset.</p></div></section>
+
+        <section id="documentation" class="rag-section"><p class="eyebrow">10 · README / DOCUMENTATION PLACEHOLDER</p><h2>Project Documentation</h2><div class="rag-placeholder-card"><p>Detailed documentation, implementation notes and project resources will be added here.</p><a class="outline-btn" href="#">View Documentation <span>→</span></a></div></section>
+
         <a class="back-projects" href="../../index.html#projects">← Back to Projects</a>
       </article>
       <aside class="project-sidebar case-study-sidebar">
-        <div class="side-card"><p class="eyebrow">ON THIS PAGE</p><a href="#overview">Project Overview</a><a href="#business-question">Business Question</a><a href="#methodology">Approach / Methodology</a><a href="#findings">Key Findings</a><a href="#impact">Business Impact / Conclusion</a><a href="#walkthrough">Project Walkthrough / Visuals</a><a href="#presentation">Presentation</a><a href="#readme">Detailed Documentation / README</a><a href="#demo">Live Demo</a><a href="#github">GitHub</a></div>
+        <div class="side-card"><p class="eyebrow">ON THIS PAGE</p><a href="#presentation">Presentation</a><a href="#overview">Project Overview</a><a href="#challenge">The Challenge</a><a href="#solution">The Solution</a><a href="#how-it-works">From Source To Response</a><a href="#features">Designed For Discovery</a><a href="#data-source">Data Source</a><a href="#technology">Technology</a><a href="#outcomes">Why It Matters</a><a href="#documentation">Project Documentation</a></div>
       </aside>
     </section>
   </main>
-  <footer class="site-footer">© 2026 Hardik Mehta · Project Case Study</footer>
+
+  <footer class="site-footer">© 2026 Hardik Mehta · Data Analytics Portfolio</footer>
   <script src="../../script.js"></script>
 </body>
 </html>
