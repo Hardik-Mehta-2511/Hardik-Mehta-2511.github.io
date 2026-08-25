@@ -25,7 +25,45 @@
     .saas-callout strong, .saas-callout span { display:block; }
     .saas-callout strong { color:#c4b5fd; font-size:13px; letter-spacing:.08em; }
     .saas-callout span { margin-top:6px; color:#aab8cb; font-size:13px; }
-    @media (max-width:700px) { .saas-metric-grid { grid-template-columns:1fr; } }
+    .saas-dashboard-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; margin-top:28px; }
+    .saas-dashboard-card { min-width:0; display:flex; flex-direction:column; padding:22px; border:1px solid var(--border); border-radius:10px; background:rgba(10,19,37,.75); }
+    .saas-dashboard-card span { color:var(--blue); font-size:10px; font-weight:700; letter-spacing:.1em; }
+    .saas-dashboard-card h3 { margin:17px 0 8px; font-size:18px; }
+    .saas-dashboard-card p { margin:0 0 22px; color:var(--muted); font-size:12px; line-height:1.6; }
+    .saas-dashboard-card .outline-btn { align-self:flex-start; margin-top:auto; }
+    .saas-comparison-block { margin-top:28px; }
+    .saas-comparison-block > strong { display:block; color:#c4b5fd; font-size:13px; letter-spacing:.08em; }
+    .saas-comparison-block > p { max-width:720px; margin:7px 0 0; color:#aab8cb; font-size:14px; line-height:1.6; }
+    .saas-comparison-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:14px; margin-top:20px; }
+    .saas-comparison-grid article { min-width:0; padding:18px; border:1px solid var(--border); border-radius:10px; background:rgba(10,19,37,.75); }
+    .saas-comparison-grid span { color:var(--blue); font-size:10px; font-weight:700; letter-spacing:.1em; }
+    .saas-comparison-grid p { margin:12px 0 0; color:var(--muted); font-size:12px; line-height:1.55; }
+    .saas-comparison-note { margin:18px 0 0; color:#8fa2bb; font-size:12px; line-height:1.6; }
+    .saas-journey { display:grid; gap:16px; margin-top:28px; }
+    .saas-journey-step { display:grid; gap:14px; padding:18px 18px 16px; border:1px solid var(--border); border-radius:12px; background:rgba(10,19,37,.75); }
+    .saas-journey-label { color:var(--blue); font-size:10px; font-weight:700; letter-spacing:.12em; }
+    .saas-journey-step h3 { margin:0; color:#f1f5f9; font-size:18px; }
+    .saas-journey-step p { margin:0; color:var(--muted); font-size:13px; line-height:1.6; }
+    .saas-journey-list { margin:0; padding-left:18px; color:var(--muted); font-size:12px; line-height:1.7; }
+    .saas-journey-list li + li { margin-top:2px; }
+    .saas-journey-visual { display:grid; place-items:center; width:100%; min-height:180px; padding:16px; border:1px dashed #395173; border-radius:10px; background:repeating-linear-gradient(135deg,#0a1528,#0a1528 10px,#0c1930 10px,#0c1930 20px); }
+    .saas-journey-visual img, .saas-journey-visual video { width:100%; height:auto; max-height:420px; object-fit:contain; display:block; border-radius:inherit; background:rgba(8,17,33,.25); }
+    .saas-journey-arrow { display:grid; place-items:center; color:#a78bfa; font-size:22px; line-height:1; margin:0 0 2px; }
+    .saas-decision-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:14px; margin-top:26px; }
+    .saas-decision-grid article { min-width:0; padding:22px; border:1px solid var(--border); border-radius:10px; background:rgba(10,19,37,.75); }
+    .saas-decision-grid span { display:block; color:var(--blue); font-size:10px; font-weight:700; letter-spacing:.1em; }
+    .saas-decision-grid h3 { margin:12px 0 10px; font-size:16px; }
+    .saas-decision-grid p { margin:0; color:var(--muted); font-size:12px; line-height:1.6; }
+    .saas-decision-principle { margin-top:18px; padding:18px 20px; border:1px solid #243653; border-radius:10px; background:linear-gradient(145deg,rgba(13,25,48,.94),rgba(8,17,33,.9)); }
+    .saas-decision-principle strong { display:block; color:#c4b5fd; font-size:13px; letter-spacing:.08em; }
+    .saas-decision-principle span { display:block; margin-top:6px; color:#aab8cb; font-size:13px; }
+    .saas-scale-grid { display:flex; flex-direction:row; align-items:center; gap:12px; margin-top:24px; }
+    .saas-scale-step { flex:1; min-width:0; display:grid; gap:10px; min-height:180px; padding:18px 16px; border:1px solid var(--border); border-radius:10px; background:rgba(10,19,37,.75); }
+    .saas-scale-step span { color:var(--blue); font-size:10px; font-weight:700; letter-spacing:.1em; }
+    .saas-scale-step strong { color:#f1f5f9; font-size:16px; line-height:1.3; }
+    .saas-scale-step p { margin:0; color:var(--muted); font-size:12px; line-height:1.55; }
+    .saas-scale-arrow { flex:0 0 auto; display:grid; place-items:center; color:#a78bfa; font-size:20px; line-height:1; transform:rotate(-90deg); }
+    @media (max-width:700px) { .saas-metric-grid, .saas-decision-grid, .saas-dashboard-grid, .saas-comparison-grid { grid-template-columns:1fr; } .saas-scale-grid { flex-direction:column; } .saas-journey-step, .saas-scale-step { padding:16px; } .saas-scale-step { min-height:unset; } .saas-scale-arrow { transform:none; } [style*="grid-template-columns:repeat(2"] { grid-template-columns:1fr !important; } }
   </style>
 </head>
 <body class="rag-layout">
@@ -67,29 +105,122 @@
     <section class="section-shell case-study-grid"><article class="case-study-main">
       <section id="presentation" class="case-section"><p class="content-label">01 · PRESENTATION</p><h2>Presentation</h2><div class="rag-placeholder-card"><div class="rag-presentation-viewer" role="region" aria-label="Project presentation viewer"><p>The project presentation will be embedded here.</p></div></div></section>
 
-      <section id="overview" class="case-section"><p class="content-label">02 · PROJECT OVERVIEW</p><h2>Project Overview</h2><div class="saas-copy"><p>This project evaluates whether an AI-powered feature improves outcomes for a SaaS product.</p><p>The experiment is designed to support a product decision using conversion, engagement, and user-behavior evidence rather than assumptions about the feature.</p></div></section>
+      <section id="overview" class="case-section"><p class="content-label">02 · PROJECT OVERVIEW</p><h2>From Data Generation to Product Decision</h2><div class="saas-copy"><p>The experiment progresses from synthetic data generation and SQL analysis to an initial 10K evaluation. When the evidence was not sufficiently conclusive, the experiment was scaled to 100K users and reassessed using the same analytical framework.</p></div><div class="saas-journey">
+        <div class="saas-journey-step">
+          <div class="saas-journey-label">01 — INITIAL DATA GENERATION</div>
+          <h3>10K Experiment — Data Generation</h3>
+          <p>The experiment begins with a 10,000-user synthetic SaaS telemetry dataset, creating the initial population for the Control vs Treatment analysis.</p>
+          <div class="saas-journey-visual">
+            <video src="../../assets/Data_10k.mp4" autoplay muted loop playsinline controls style="width:100%; height:100%; object-fit:cover; border-radius:inherit; display:block;"></video>
+          </div>
+        </div>
+        <div class="saas-journey-arrow" aria-hidden="true">↓</div>
+        <div class="saas-journey-step">
+          <div class="saas-journey-label">02 — SQL ANALYSIS</div>
+          <h3>10K Experiment — SQL Analysis</h3>
+          <p>The generated telemetry data is analyzed in MySQL to compare experiment population, task completion, conversion, revenue, and AI feature engagement.</p>
+          <ul class="saas-journey-list">
+            <li>Experiment population</li>
+            <li>Task completion</li>
+            <li>Conversion</li>
+            <li>Revenue</li>
+            <li>AI feature engagement</li>
+          </ul>
+          <div class="saas-journey-visual">
+            <video src="../../assets/sql_queries.mp4" autoplay muted loop playsinline controls style="width:100%; height:100%; object-fit:cover; border-radius:inherit; display:block;"></video>
+          </div>
+        </div>
+        <div class="saas-journey-arrow" aria-hidden="true">↓</div>
+        <div class="saas-journey-step">
+          <div class="saas-journey-label">03 — INITIAL 10K RESULTS</div>
+          <h3>10K Experiment — Initial Results</h3>
+          <p>The initial Tableau dashboard visualizes the Control vs Treatment results and provides the first evidence for evaluating the AI-powered feature.</p>
+          <p>The initial evidence was not sufficiently conclusive for a confident product decision.</p>
+          <div class="saas-journey-visual">
+            <img src="../../assets/saas_10k.png" alt="10K Experiment initial results dashboard" loading="lazy">
+          </div>
+        </div>
+        <div class="saas-journey-arrow" aria-hidden="true">↓</div>
+        <div class="saas-journey-step">
+          <div class="saas-journey-label">04 — EXPERIMENT UPSCALING</div>
+          <h3>Scaling the Experiment — 10K → 100K</h3>
+          <p>With the initial evidence still inconclusive, the experiment population was increased to 100,000 users before reassessing the treatment effect.</p>
+          <div class="saas-journey-visual">
+            <video src="../../assets/data_100k.mp4" autoplay muted loop playsinline controls style="width:100%; height:100%; object-fit:cover; border-radius:inherit; display:block;"></video>
+          </div>
+        </div>
+        <div class="saas-journey-arrow" aria-hidden="true">↓</div>
+        <div class="saas-journey-step">
+          <div class="saas-journey-label">05 — FINAL 100K RESULTS</div>
+          <h3>100K Experiment — Final Results</h3>
+          <p>The final Tableau dashboard provides the scaled Control vs Treatment comparison used to evaluate the AI-powered feature and support the final product decision.</p>
+          <div class="saas-journey-visual">
+            <img src="../../assets/Saas_100k_dashboard.png" alt="Final 100K experiment dashboard" loading="lazy">
+          </div>
+        </div>
+      </div></section>
 
-      <section id="business-question" class="case-section"><p class="content-label">03 · BUSINESS QUESTION</p><h2>Business Question</h2><div class="saas-copy"><p>Should the SaaS company implement the AI feature based on its impact on conversion, engagement, and user behavior?</p><p>Conversion indicates whether the feature supports the desired product outcome. Engagement and behavior help assess how users interact with it beyond the primary outcome.</p></div></section>
+      <section id="business-question" class="case-section"><p class="content-label">03 · BUSINESS QUESTION</p><h2>Business Question</h2><div class="saas-copy"><p>Should the SaaS company implement the AI feature based on its impact on conversion, engagement, and user behavior?</p><p>Conversion indicates whether the feature supports the desired product outcome. Engagement and behavior help assess how users interact with it beyond the primary outcome.</p></div><div class="saas-decision-grid">
+        <article><span>01</span><h3>CONVERSION</h3><p>Does the AI feature improve the primary product outcome?</p></article>
+        <article><span>02</span><h3>ENGAGEMENT</h3><p>Do users meaningfully interact with the AI feature?</p></article>
+        <article><span>03</span><h3>USER BEHAVIOR</h3><p>Does the feature influence downstream actions such as task completion or payment?</p></article>
+      </div>
+      <div class="saas-decision-principle"><strong>Decision principle</strong><span>Compare Control vs Treatment across all three dimensions before recommending rollout.</span></div></section>
 
       <section id="methodology" class="case-section"><p class="content-label">04 · APPROACH / METHODOLOGY</p><h2>Experiment / Methodology</h2><div class="saas-metric-grid"><article><span>CONTROL</span><h3>Existing experience</h3><p>The control group represents the current SaaS experience without the AI feature.</p></article><article><span>EXPERIMENT</span><h3>AI feature enabled</h3><p>The treatment group receives the AI-powered feature being evaluated.</p></article><article><span>WORKFLOW</span><h3>From data to decision</h3><p>MySQL, Python, A/B testing, and Tableau support the analysis workflow.</p></article></div><div class="saas-copy" style="margin-top:28px"><p>Users are evaluated through control and treatment groups, with behavioral and conversion metrics used to compare the experiences.</p><p>The final decision is based on statistical evidence and business relevance, not on directional movement alone.</p></div><div class="saas-callout"><strong>100K SYNTHETIC EXPERIMENT DATASET</strong><span>After the initial 10K-user experiment did not provide sufficiently clear evidence for a decisive Control vs Treatment conclusion, the experiment was scaled to 100,000 randomly generated users using Python.</span><span>Using a larger synthetic dataset allowed the experiment to evaluate the AI feature with greater statistical precision while keeping the Control and Treatment framework consistent.</span></div></section>
 
-      <section id="dataset" class="case-section"><p class="content-label">05 · DATASET</p><h2>Dataset</h2><div class="saas-copy"><p>The project initially used a 10K-user dataset. That sample did not provide sufficiently clear statistical evidence for a decisive Control vs Treatment conclusion.</p><p>The final experiment used 100,000 users in a randomly generated synthetic dataset created with Python. Users were assigned to Control and Treatment groups for the experiment.</p><p>The larger synthetic dataset was used to improve the statistical power and precision of the comparison, with the aim of determining more clearly whether the AI feature produced a meaningful difference between the two groups.</p></div><div class="saas-metric-grid"><article><span>WHY 100K?</span><h3>Stronger evidence base</h3><p>The dataset was scaled because the original 10K experiment did not produce a sufficiently clear winner.</p></article><article><span>DATA TYPE</span><h3>Randomly generated</h3><p>The 100,000-user experiment dataset was generated synthetically in Python and does not represent real customers.</p></article><article><span>EXPERIMENT FRAMEWORK</span><h3>Control vs Treatment</h3><p>The larger dataset kept the experiment groups consistent while supporting a more precise comparison.</p></article></div><div class="saas-visual-placeholder"><strong>EXPERIMENT DATASET / CONTROL VS EXPERIMENT OVERVIEW</strong><span>Dataset composition and group overview will be added here.</span></div></section>
+      <section id="dataset" class="case-section"><p class="content-label">05 · DATASET</p><h2>Dataset</h2><div class="saas-copy"><p>The project initially used a 10K-user dataset. That sample did not provide sufficiently clear statistical evidence for a decisive Control vs Treatment conclusion.</p><p>The final experiment used 100,000 users in a randomly generated synthetic dataset created with Python. Users were assigned to Control and Treatment groups for the experiment.</p><p>The larger synthetic dataset was used to improve the statistical power and precision of the comparison, with the aim of determining more clearly whether the AI feature produced a meaningful difference between the two groups.</p></div><div class="saas-copy" style="margin-top:32px"><strong style="display:block; color:#c4b5fd; font-size:13px; letter-spacing:.08em;">TABLEAU DASHBOARDS</strong><p style="margin:7px 0 0;">The experiment was analyzed through Tableau dashboards at both the initial 10K-user stage and after scaling the dataset to 100K users.</p></div><div class="saas-dashboard-grid"><article class="saas-dashboard-card"><span>10K USERS</span><h3>Initial Tableau Dashboard</h3><p>Explore the original 10K-user experiment dashboard and the initial Control vs Treatment analysis.</p><a class="outline-btn" href="https://public.tableau.com/app/profile/hardik.mehta2597/viz/Saas_final2/ExecutiveDashboard" target="_blank" rel="noopener noreferrer">View 10K Dashboard →</a></article><article class="saas-dashboard-card"><span>100K USERS</span><h3>Final Tableau Dashboard</h3><p>Explore the scaled 100K-user dashboard with the final experiment comparison and broader product analytics.</p><a class="outline-btn" href="https://public.tableau.com/app/profile/hardik.mehta2597/viz/Saas_final_100k/ExecutiveDashboard" target="_blank" rel="noopener noreferrer">View 100K Dashboard →</a></article></div><div class="saas-metric-grid"><article><span>WHY 100K?</span><h3>Stronger evidence base</h3><p>The dataset was scaled because the original 10K experiment did not produce a sufficiently clear winner.</p></article><article><span>DATA TYPE</span><h3>Randomly generated</h3><p>The 100,000-user experiment dataset was generated synthetically in Python and does not represent real customers.</p></article><article><span>EXPERIMENT FRAMEWORK</span><h3>Control vs Treatment</h3><p>The larger dataset kept the experiment groups consistent while supporting a more precise comparison.</p></article></div><div class="saas-scale-grid" aria-label="10K to 100K experiment progression">
+        <div class="saas-scale-step"><span>STEP 01</span><strong>10K USERS</strong><p>Initial experiment dataset</p></div>
+        <div class="saas-scale-arrow" aria-hidden="true">↓</div>
+        <div class="saas-scale-step"><span>STEP 02</span><strong>INITIAL ANALYSIS</strong><p>Control vs Treatment comparison</p></div>
+        <div class="saas-scale-arrow" aria-hidden="true">↓</div>
+        <div class="saas-scale-step"><span>STEP 03</span><strong>RESULT NOT SUFFICIENTLY CLEAR</strong><p>The 10K sample did not provide a sufficiently decisive conclusion</p></div>
+        <div class="saas-scale-arrow" aria-hidden="true">↓</div>
+        <div class="saas-scale-step"><span>STEP 04</span><strong>100K USERS</strong><p>Scaled synthetic experiment</p></div>
+        <div class="saas-scale-arrow" aria-hidden="true">↓</div>
+        <div class="saas-scale-step"><span>STEP 05</span><strong>FINAL ANALYSIS</strong><p>Larger sample for a more precise comparison</p></div>
+      </div>
+      <div class="dashboard-snapshot-section" style="margin-top:32px">
+        <h3 style="margin:0 0 10px; color:#f1f5f9; font-size:18px; font-weight:600;">100K Dashboard Snapshot</h3>
+        <p style="margin:0 0 24px; max-width:720px; color:#aab8cb; font-size:14px; line-height:1.6;">With the experiment scaled to 100K users, the final Tableau dashboard provides a broader view of the Control vs Treatment experiment alongside revenue, geographic, device, and subscription patterns.</p>
+        <div style="margin-bottom:24px; border-radius:10px; overflow:hidden;">
+          <img src="../../assets/a:b.png" alt="A/B Test Performance — Control vs Treatment revenue comparison from the 100K-user experiment." style="width:100%; height:auto; display:block; border:1px solid var(--border); border-radius:10px; background:rgba(8,17,33,.25);" />
+          <p style="margin:10px 0 0; color:var(--muted); font-size:12px; line-height:1.5; font-style:italic;">A/B Test Performance — Control vs Treatment revenue comparison from the 100K-user experiment.</p>
+        </div>
+        <div style="display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px;">
+          <div>
+            <img src="../../assets/Revenue_saas.png" alt="Monthly Revenue Trend — Revenue progression across the observation period." style="width:100%; height:auto; display:block; border:1px solid var(--border); border-radius:10px; background:rgba(8,17,33,.25);" />
+            <p style="margin:10px 0 0; color:var(--muted); font-size:12px; line-height:1.5; font-style:italic;">Monthly Revenue Trend — Revenue progression across the observation period.</p>
+          </div>
+          <div>
+            <img src="../../assets/rev_by_country.png" alt="Revenue by Country — Geographic distribution of revenue across the highest-performing markets." style="width:100%; height:auto; display:block; border:1px solid var(--border); border-radius:10px; background:rgba(8,17,33,.25);" />
+            <p style="margin:10px 0 0; color:var(--muted); font-size:12px; line-height:1.5; font-style:italic;">Revenue by Country — Geographic distribution of revenue across the highest-performing markets.</p>
+          </div>
+          <div>
+            <img src="../../assets/County_saas.png" alt="Users by Country — Distribution of users across the highest-represented countries." style="width:100%; height:auto; display:block; border:1px solid var(--border); border-radius:10px; background:rgba(8,17,33,.25);" />
+            <p style="margin:10px 0 0; color:var(--muted); font-size:12px; line-height:1.5; font-style:italic;">Users by Country — Distribution of users across the highest-represented countries.</p>
+          </div>
+          <div>
+            <img src="../../assets/Users_by_device.png" alt="Users by Device — User distribution across desktop, mobile, and tablet." style="width:100%; height:auto; display:block; border:1px solid var(--border); border-radius:10px; background:rgba(8,17,33,.25);" />
+            <p style="margin:10px 0 0; color:var(--muted); font-size:12px; line-height:1.5; font-style:italic;">Users by Device — User distribution across desktop, mobile, and tablet.</p>
+          </div>
+          <div style="grid-column:1 / -1;">
+            <img src="../../assets/users_by_subscription.png" alt="Users by Subscription Plan — Distribution of users across free and premium plans." style="width:100%; height:auto; display:block; border:1px solid var(--border); border-radius:10px; background:rgba(8,17,33,.25);" />
+            <p style="margin:10px 0 0; color:var(--muted); font-size:12px; line-height:1.5; font-style:italic;">Users by Subscription Plan — Distribution of users across free and premium plans.</p>
+          </div>
+        </div>
+      </div>
+      </div></section>
 
-      <section id="metrics" class="case-section"><p class="content-label">06 · KEY METRICS</p><h2>Key Metrics</h2><div class="saas-metric-grid"><article><span>PRIMARY OUTCOME</span><h3>Conversion</h3><p>Measures whether the feature is associated with the desired SaaS outcome.</p></article><article><span>SECONDARY OUTCOME</span><h3>Engagement</h3><p>Shows how actively users interact with the product experience.</p></article><article><span>BEHAVIOR</span><h3>User behavior</h3><p>Provides context for how users respond to the AI feature beyond conversion.</p></article></div></section>
+      <section id="metrics" class="case-section"><p class="content-label">06 · KEY METRICS</p><h2>Key Metrics</h2><div class="saas-copy"><p>The experiment evaluates the AI feature across three dimensions: conversion, engagement, and user behavior.</p></div><div class="saas-metric-grid"><article><span>PRIMARY OUTCOME</span><h3>Conversion</h3><p>Measures whether users complete the desired product outcome, using payment activity to compare Control vs Treatment.</p></article><article><span>SECONDARY OUTCOME</span><h3>Engagement</h3><p>Measures how actively users interact with the product, including task completion and interaction with the AI feature.</p></article><article><span>BEHAVIOR</span><h3>User Behavior</h3><p>Examines how users respond to the AI feature through actions such as recommendation exposure, acceptance, task completion, and downstream activity.</p></article></div></section>
 
-      <section id="statistical-analysis" class="case-section"><p class="content-label">07 · STATISTICAL ANALYSIS</p><h2>Statistical Analysis</h2><div class="saas-copy"><p>The analysis compares outcomes between the control and treatment groups using the project’s defined A/B testing workflow.</p><p>Hypotheses, p-values, confidence intervals, and statistical significance should be read alongside practical business significance when interpreting the result.</p><p>The current project materials do not establish a confirmed significant winner or provide final test values, so those outputs remain part of the supporting analysis to be documented.</p></div><div class="saas-visual-placeholder"><strong>STATISTICAL TEST RESULTS</strong><span>Hypothesis tests, confidence intervals, and result interpretation will be added here.</span></div></section>
+      <section id="statistical-analysis" class="case-section"><p class="content-label">07 · A/B TEST ANALYSIS</p><h2>A/B Test Analysis</h2><div class="saas-copy"><p>The analysis compares the Control and Treatment groups across conversion, engagement, revenue, and user-behavior metrics to evaluate the AI feature.</p><p>The initial 10K-user experiment did not provide a sufficiently clear basis for a decisive Control vs Treatment conclusion, so the experiment was scaled to a 100K-user synthetic dataset and analyzed again.</p><p>The final comparison focuses on the direction and magnitude of the observed differences across the experiment groups. Formal hypothesis testing and confidence intervals were not included in this project.</p></div><div class="saas-comparison-block"><strong>WHAT WAS COMPARED</strong><p>The final 100K-user analysis compares Control and Treatment across five core dimensions to evaluate the AI feature's observed product impact.</p><div class="saas-comparison-grid"><article><span>EXPERIMENT POPULATION</span><p>Control vs Treatment user allocation and overall experiment population.</p></article><article><span>TASK COMPLETION</span><p>Percentage of users completing at least one task in each experiment group.</p></article><article><span>CONVERSION</span><p>Users generating a successful payment event and the resulting conversion rate.</p></article><article><span>REVENUE</span><p>Total revenue and revenue per user across Control and Treatment.</p></article><article><span>AI ENGAGEMENT</span><p>AI recommendation exposure and acceptance among users in the experiment.</p></article></div><p class="saas-comparison-note">These comparisons describe observed differences between the experiment groups. They are intended to support product analysis, not to establish statistical significance or causal impact.</p></div></section>
 
-      <section id="findings" class="case-section"><p class="content-label">08 · KEY FINDINGS</p><h2>Key Findings</h2><div class="saas-metric-grid"><article><span>EVIDENCE</span><h3>No clear winner in 10K</h3><p>The initial sample did not provide sufficiently clear evidence for a definitive feature decision.</p></article><article><span>SCALABILITY</span><h3>Expanded to 100K</h3><p>The dataset was scaled to approximately 100K users to strengthen the evidence base.</p></article><article><span>INTERPRETATION</span><h3>Avoid overclaiming</h3><p>Directional differences should be separated from statistically significant findings.</p></article></div></section>
+      <section id="findings" class="case-section"><p class="content-label">08 · KEY FINDINGS</p><h2>Key Findings</h2><div class="saas-metric-grid"><article><span>EVIDENCE</span><h3>10K Was Not Conclusive</h3><p>The initial 10K-user experiment did not provide sufficiently clear evidence for a definitive Control vs Treatment decision.</p></article><article><span>SCALING</span><h3>Expanded to 100K</h3><p>The experiment was scaled to approximately 100K synthetic users to provide a larger evidence base for the final Control vs Treatment comparison.</p></article><article><span>INTERPRETATION</span><h3>Separate Direction from Proof</h3><p>Observed differences can indicate a directional pattern, but without formal statistical testing they should not be treated as proof of a statistically significant effect.</p></article></div><div class="saas-copy"><p>The project demonstrates how an initially inconclusive experiment can motivate a larger analysis while maintaining appropriate caution in interpreting the results.</p></div></section>
 
-      <section id="impact" class="case-section"><p class="content-label">09 · BUSINESS IMPACT / CONCLUSION</p><h2>Business Impact / Conclusion</h2><div class="saas-copy"><p>The analysis gives the SaaS company a structured way to evaluate whether the AI feature supports conversion, engagement, and user behavior.</p><p>Because the available evidence does not establish a clear winner, the feature should not be treated as ready for broad implementation based on this analysis alone.</p></div><div class="saas-callout"><strong>BUSINESS RECOMMENDATION</strong><span>Treat the result as inconclusive and require further validated testing before making a broad rollout decision.</span></div></section>
+      <section id="impact" class="case-section"><p class="content-label">09 · BUSINESS IMPACT / CONCLUSION</p><h2>Business Impact / Conclusion</h2><div class="saas-copy"><p>The analysis provides the SaaS company with a structured framework for evaluating the AI feature across conversion, engagement, revenue, and user behavior.</p><p>Scaling the experiment from 10K to 100K users provided a broader evidence base for the Control vs Treatment comparison. However, the analysis remains based on synthetic data and descriptive comparisons rather than formal statistical inference, so the observed differences should be interpreted cautiously.</p></div><div class="saas-callout"><strong>BUSINESS RECOMMENDATION</strong><span>Treat the current result as directional rather than conclusive. Continue validating the AI feature through a controlled experiment with real users and formal statistical testing before making a broad rollout decision.</span></div></section>
 
-      <section id="walkthrough" class="case-section"><p class="content-label">10 · PROJECT WALKTHROUGH / VISUALS</p><h2>Project Walkthrough / Visuals</h2><div class="saas-visual-placeholder"><strong>A/B TESTING EXPERIMENT DESIGN</strong><span>Experiment setup and assignment flow will be added here.</span></div><div class="saas-visual-placeholder"><strong>CONTROL VS EXPERIMENT COMPARISON</strong><span>Group-level comparison will be added here.</span></div><div class="saas-visual-placeholder"><strong>CONVERSION / ENGAGEMENT ANALYSIS</strong><span>Metric comparison visuals will be added here.</span></div><div class="saas-visual-placeholder"><strong>STATISTICAL TESTING WORKFLOW</strong><span>Analysis workflow and interpretation will be added here.</span></div><div class="saas-visual-placeholder"><strong>TABLEAU DASHBOARD</strong><span>Tableau analysis screenshot will be added here.</span></div></section>
-
-      <section id="dashboard" class="case-section"><p class="content-label">11 · INTERACTIVE DASHBOARD</p><h2>Interactive Dashboard</h2><div class="saas-copy"><p>The dashboard is intended to help users explore the experiment groups, conversion, engagement, and supporting behavior analysis.</p><p>The Tableau view will be connected here once the published dashboard is ready.</p></div><div class="case-placeholder">The Tableau Public dashboard link will be added here.</div></section>
-
-      <section id="readme" class="case-section"><p class="content-label">12 · DETAILED PROJECT DOCUMENTATION / README</p><h2>Detailed Project Documentation / README</h2><div class="saas-copy"><p>The documentation will cover the methodology, dataset generation, SQL analysis, statistical testing, Tableau analysis, and conclusions.</p></div><div class="case-placeholder">Detailed documentation will be added here.</div></section>
-
-      <section id="github" class="case-section"><p class="content-label">13 · GITHUB</p><h2>GitHub</h2><div class="case-placeholder">The project repository link will be added here.</div></section>
+      <section id="github" class="case-section"><p class="content-label">12 · GITHUB</p><h2>GitHub</h2><div class="case-placeholder">The project repository link will be added here.</div></section>
       <a class="back-projects" href="../../index.html#projects">← Back to Projects</a>
     </article><aside class="project-sidebar case-study-sidebar"><div class="side-card"><p class="eyebrow">ON THIS PAGE</p><a href="#presentation">Presentation</a><a href="#overview">Project Overview</a><a href="#business-question">Business Question</a><a href="#methodology">Experiment / Methodology</a><a href="#dataset">Dataset</a><a href="#metrics">Key Metrics</a><a href="#statistical-analysis">Statistical Analysis</a><a href="#findings">Key Findings</a><a href="#impact">Business Impact / Conclusion</a><a href="#walkthrough">Project Walkthrough / Visuals</a><a href="#dashboard">Interactive Dashboard</a><a href="#readme">Detailed Project Documentation / README</a><a href="#github">GitHub</a></div></aside></section>
   </main>
