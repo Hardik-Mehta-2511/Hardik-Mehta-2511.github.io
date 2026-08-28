@@ -10,58 +10,1218 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../../styles.css">
   <style>
-    .olist-copy { max-width:720px; color:#aab8cb; font-size:14px; }
-    .olist-copy p { margin:0 0 20px; }
-    .olist-copy p:last-child { margin-bottom:0; }
-    .olist-placeholder { display:grid; gap:7px; min-height:150px; margin-top:28px; padding:25px; border:1px dashed #395173; border-radius:10px; background:repeating-linear-gradient(135deg,#0a1528,#0a1528 10px,#0c1930 10px,#0c1930 20px); text-align:center; place-content:center; }
-    .olist-placeholder.tall { min-height:210px; }
-    .olist-placeholder.gif { min-height:190px; border-color:#8b5cf6; }
-    .olist-placeholder strong { color:#b9a9f7; font-size:10px; letter-spacing:.16em; }
-    .olist-placeholder span { color:#8fa2bb; font-size:12px; }
-    .olist-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; margin-top:28px; }
-    .olist-grid .olist-placeholder { margin-top:0; }
-    .olist-cards { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:14px; margin-top:28px; }
-    .olist-cards article { min-width:0; min-height:145px; padding:22px; border:1px solid var(--border); border-radius:10px; background:rgba(10,19,37,.75); }
-    .olist-cards span { color:var(--blue); font-size:10px; font-weight:700; letter-spacing:.1em; }
-    .olist-cards h3 { margin:17px 0 8px; font-size:16px; }
-    .olist-cards p { margin:0; color:var(--muted); font-size:12px; line-height:1.55; }
-    .olist-entities { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:10px; margin-top:28px; }
-    .olist-entities div { padding:16px; border:1px solid var(--border); border-radius:9px; background:rgba(10,19,37,.78); color:#dbe5f0; text-align:center; font-size:12px; }
-    .olist-callout { margin-top:28px; padding:22px; border:1px solid #243653; border-radius:10px; background:linear-gradient(145deg,rgba(13,25,48,.94),rgba(8,17,33,.9)); }
-    .olist-callout strong, .olist-callout span { display:block; }
-    .olist-callout strong { color:#c4b5fd; font-size:13px; letter-spacing:.08em; }
-    .olist-callout span { margin-top:6px; color:#aab8cb; font-size:13px; }
-    @media (max-width:1000px) { .olist-cards { grid-template-columns:repeat(2,minmax(0,1fr)); } .olist-entities { grid-template-columns:repeat(2,minmax(0,1fr)); } }
-    @media (max-width:700px) { .olist-grid, .olist-cards, .olist-entities { grid-template-columns:1fr; } }
+    .olist-copy {
+      max-width: 760px;
+      color: #aab8cb;
+      font-size: 14px;
+    }
+
+    .olist-copy p {
+      margin: 0 0 20px;
+    }
+
+    .olist-copy p:last-child {
+      margin-bottom: 0;
+    }
+
+    .olist-intro {
+      max-width: 760px;
+      margin: 0 0 18px;
+      color: #aab8cb;
+      font-size: 14px;
+      line-height: 1.75;
+    }
+
+    .olist-stage-section {
+      margin-top: 30px;
+    }
+
+    .olist-stage-section h2 {
+      margin-bottom: 0;
+    }
+
+    .olist-step,
+    .olist-card,
+    .olist-dashboard-card,
+    .olist-tech-grid article,
+    .olist-cta-box {
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: rgba(10, 19, 37, 0.78);
+    }
+
+    .olist-step {
+      min-width: 0;
+      display: grid;
+      grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+      gap: 28px;
+      align-items: center;
+      margin-top: 30px;
+      padding: 24px;
+      position: relative;
+    }
+
+    .olist-step.reverse {
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+    }
+
+    .olist-step::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      bottom: -31px;
+      width: 1px;
+      height: 30px;
+      background: #a78bfa;
+      opacity: 0.7;
+    }
+
+    .olist-step:last-of-type::after {
+      display: none;
+    }
+
+    .olist-step span,
+    .olist-card span,
+    .olist-dashboard-card span {
+      display: block;
+      color: var(--blue);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .olist-step h3,
+    .olist-card h3,
+    .olist-dashboard-card h3 {
+      margin: 10px 0 10px;
+      font-size: 24px;
+      line-height: 1.2;
+      font-family: "Playfair Display", serif;
+    }
+
+    .olist-step p,
+    .olist-card p,
+    .olist-dashboard-card p,
+    .olist-cta-box span {
+      margin: 0;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.6;
+    }
+
+    .olist-step-copy {
+      min-width: 0;
+    }
+
+    .olist-step-copy p {
+      margin: 0 0 14px;
+    }
+
+    .olist-step-detail {
+      margin-top: 16px;
+      padding-top: 14px;
+      border-top: 1px solid rgba(148, 163, 184, 0.14);
+    }
+
+    .olist-step-detail strong {
+      display: block;
+      margin-bottom: 6px;
+      color: #dbe5f0;
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .olist-step-visual {
+      min-width: 0;
+    }
+
+    .olist-step-visual video {
+      display: block;
+      width: 100%;
+      max-height: 310px;
+      aspect-ratio: 16 / 9;
+      object-fit: contain;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: #081121;
+    }
+
+    .olist-stage-arrow {
+      display: grid;
+      place-items: center;
+      height: 34px;
+      color: #a78bfa;
+      font-size: 28px;
+      line-height: 1;
+    }
+
+    .olist-final-step {
+      display: block;
+    }
+
+    .olist-final-dashboards {
+      display: grid;
+      gap: 26px;
+      min-width: 0;
+      width: 100%;
+      margin-top: 28px;
+    }
+
+    .olist-final-dashboard {
+      display: grid;
+      gap: 12px;
+      margin: 0;
+      padding: 24px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: rgba(10, 19, 37, 0.75);
+    }
+
+    .olist-final-dashboard img {
+      display: block;
+      width: 100%;
+      height: auto;
+      max-width: 100%;
+      padding: 18px;
+      box-sizing: border-box;
+      border: 1px dashed #395173;
+      border-radius: 10px;
+      background: repeating-linear-gradient(135deg, #0a1528, #0a1528 10px, #0c1930 10px, #0c1930 20px);
+      object-fit: contain;
+    }
+
+    .olist-final-dashboard figcaption {
+      margin-top: 8px;
+      color: #8fa2bb;
+      font-size: 12px;
+      font-style: italic;
+      line-height: 1.5;
+    }
+
+    .olist-dashboard-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 24px;
+    }
+
+    .olist-dataset-dashboards .olist-dashboard-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 34px;
+    }
+
+    .olist-dashboard-card {
+      min-width: 0;
+      padding: 18px;
+      display: grid;
+      gap: 16px;
+    }
+
+    .olist-dashboard-card img {
+      display: block;
+      width: 100%;
+      min-height: 260px;
+      height: auto;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: rgba(8, 17, 33, 0.45);
+      object-fit: contain;
+    }
+
+    .insights-grid,
+    .olist-insights {
+      width: 100%;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 24px;
+      align-items: stretch;
+      margin-top: 32px;
+    }
+
+    .insights-grid .olist-card,
+    .olist-card {
+      width: 100%;
+      min-width: 0;
+      min-height: 260px;
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      background: rgba(10, 19, 37, 0.7);
+      border: 1px solid rgba(76, 132, 255, 0.18);
+      border-radius: 24px;
+      box-sizing: border-box;
+    }
+
+    .olist-card span {
+      color: var(--blue);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .olist-card h3 {
+      margin: 12px 0 10px;
+      font-size: 22px;
+      line-height: 1.2;
+      font-family: "Playfair Display", serif;
+      color: #eef4ff;
+    }
+
+    .olist-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.65;
+    }
+
+    .olist-tech-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 28px;
+    }
+
+    .olist-tech-grid article {
+      min-width: 0;
+      min-height: 120px;
+      padding: 20px;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      color: #dbe5f0;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .olist-tech-grid article:nth-child(odd) {
+      border-color: #2c4068;
+    }
+
+    .olist-tech-grid article:nth-child(even) {
+      border-color: #323b57;
+    }
+
+    .olist-business-copy {
+      max-width: 720px;
+      color: #aab8cb;
+      font-size: 14px;
+    }
+
+    .olist-business-copy p {
+      margin: 0 0 20px;
+      line-height: 1.7;
+    }
+
+    .olist-business-copy p:last-child {
+      margin-bottom: 0;
+    }
+
+    .olist-question-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 26px;
+    }
+
+    .olist-question-grid article {
+      min-width: 0;
+      padding: 22px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: rgba(10, 19, 37, 0.75);
+    }
+
+    .olist-question-grid span {
+      display: block;
+      color: var(--blue);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+    }
+
+    .olist-question-grid h3 {
+      margin: 12px 0 10px;
+      font-size: 16px;
+    }
+
+    .olist-question-grid p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.6;
+    }
+
+    .olist-decision-principle {
+      margin-top: 18px;
+      padding: 18px 20px;
+      border: 1px solid #243653;
+      border-radius: 10px;
+      background: linear-gradient(145deg, rgba(13, 25, 48, 0.94), rgba(8, 17, 33, 0.9));
+    }
+
+    .olist-decision-principle strong,
+    .olist-decision-principle span {
+      display: block;
+    }
+
+    .olist-decision-principle strong {
+      color: #c4b5fd;
+      font-size: 13px;
+      letter-spacing: 0.08em;
+    }
+
+    .olist-decision-principle span {
+      margin-top: 6px;
+      color: #aab8cb;
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
+    .olist-methodology-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 28px;
+    }
+
+    .olist-methodology-grid article {
+      min-width: 0;
+      min-height: 145px;
+      padding: 22px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: rgba(10, 19, 37, 0.75);
+    }
+
+    .olist-methodology-grid span {
+      color: var(--blue);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+    }
+
+    .olist-methodology-grid h3 {
+      margin: 17px 0 8px;
+      font-size: 16px;
+    }
+
+    .olist-methodology-grid p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.55;
+    }
+
+    .olist-methodology-copy {
+      max-width: 720px;
+      margin-top: 28px;
+      color: #aab8cb;
+      font-size: 14px;
+    }
+
+    .olist-methodology-copy p {
+      margin: 0 0 20px;
+      line-height: 1.7;
+    }
+
+    .olist-methodology-copy p:last-child {
+      margin-bottom: 0;
+    }
+
+    .olist-workflow-callout {
+      margin-top: 28px;
+      padding: 22px;
+      border: 1px solid #243653;
+      border-radius: 10px;
+      background: linear-gradient(145deg, rgba(13, 25, 48, 0.94), rgba(8, 17, 33, 0.9));
+    }
+
+    .olist-workflow-callout strong,
+    .olist-workflow-callout span {
+      display: block;
+    }
+
+    .olist-workflow-callout strong {
+      color: #c4b5fd;
+      font-size: 13px;
+      letter-spacing: 0.08em;
+    }
+
+    .olist-workflow-callout span {
+      margin-top: 7px;
+      color: #aab8cb;
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
+    .olist-dataset-flow {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr) auto minmax(0, 1fr) auto minmax(0, 1fr);
+      gap: 12px;
+      align-items: stretch;
+      margin-top: 42px;
+    }
+
+    .olist-dataset-flow article {
+      min-width: 0;
+      padding: 18px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: rgba(10, 19, 37, 0.75);
+    }
+
+    .olist-dataset-flow span,
+    .olist-dataset-flow strong {
+      display: block;
+    }
+
+    .olist-dataset-flow span {
+      color: var(--blue);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+    }
+
+    .olist-dataset-flow strong {
+      margin: 12px 0 8px;
+      color: #f1f5f9;
+      font-size: 13px;
+      letter-spacing: 0.04em;
+    }
+
+    .olist-dataset-flow p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.55;
+    }
+
+    .olist-dataset-flow > div {
+      display: grid;
+      place-items: center;
+      color: #a78bfa;
+      font-size: 22px;
+    }
+
+    .olist-dataset-visuals {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      margin-top: 42px;
+    }
+
+    .olist-dataset-visual {
+      margin: 0;
+      padding: 24px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: rgba(10, 19, 37, 0.75);
+    }
+
+    .olist-dataset-visual img {
+      display: block;
+      width: 100%;
+      height: auto;
+      max-width: 100%;
+      border: 1px dashed #395173;
+      border-radius: 8px;
+      background: repeating-linear-gradient(135deg, #0a1528, #0a1528 10px, #0c1930 10px, #0c1930 20px);
+      object-fit: contain;
+    }
+
+    .olist-dataset-visual figcaption {
+      margin-top: 10px;
+      color: #8fa2bb;
+      font-size: 12px;
+      font-style: italic;
+      line-height: 1.5;
+    }
+
+    .olist-dataset-visual-arrow {
+      display: grid;
+      place-items: center;
+      height: 24px;
+      color: #a78bfa;
+      font-size: 22px;
+      line-height: 1;
+    }
+
+    .olist-dataset-dashboards {
+      margin-top: 92px;
+    }
+
+    .olist-dataset-dashboards > h3 {
+      margin: 10px 0 0;
+      font-family: "Playfair Display", serif;
+      font-size: 26px;
+      line-height: 1.2;
+    }
+
+    .olist-dashboard-intro {
+      max-width: 720px;
+      margin: 12px 0 0;
+      color: #aab8cb;
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    .olist-tableau-results {
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+      margin-top: 32px;
+    }
+
+    .olist-tableau-result {
+      min-width: 0;
+      padding: 30px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: rgba(10, 19, 37, 0.75);
+    }
+
+    .olist-tableau-result > span {
+      display: block;
+      color: var(--blue);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+    }
+
+    .olist-tableau-result h4 {
+      margin: 14px 0 10px;
+      color: #f1f5f9;
+      font-family: "Playfair Display", serif;
+      font-size: 24px;
+      line-height: 1.2;
+    }
+
+    .olist-tableau-result > p {
+      max-width: 760px;
+      margin: 0 0 12px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.65;
+    }
+
+    .olist-tableau-result-visual {
+      display: grid;
+      place-items: center;
+      margin-top: 24px;
+      padding: 24px;
+      border: 1px dashed #395173;
+      border-radius: 10px;
+      background: repeating-linear-gradient(135deg, #0a1528, #0a1528 10px, #0c1930 10px, #0c1930 20px);
+    }
+
+    .olist-tableau-result-visual img {
+      display: block;
+      width: 100%;
+      height: auto;
+      max-width: 100%;
+      border-radius: 8px;
+      background: rgba(8, 17, 33, 0.25);
+      object-fit: contain;
+    }
+
+    .olist-tableau-result-caption {
+      margin: 12px 0 24px !important;
+      color: #8fa2bb !important;
+      font-size: 12px !important;
+      font-style: italic;
+    }
+
+    .olist-tableau-result-arrow {
+      display: grid;
+      place-items: center;
+      height: 28px;
+      color: #a78bfa;
+      font-size: 24px;
+      line-height: 1;
+    }
+
+    .olist-dashboard-card {
+      padding: 28px;
+      border-color: #395173;
+      background: rgba(13, 25, 48, 0.88);
+      box-shadow: 0 14px 34px rgba(56, 189, 248, 0.09), 0 8px 22px rgba(139, 92, 246, 0.08);
+    }
+
+    .olist-dataset-dashboards .olist-dashboard-card {
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    .olist-dashboard-card h3 {
+      margin-top: 17px;
+      font-size: 18px;
+    }
+
+    .olist-dashboard-card p {
+      margin-bottom: 0;
+    }
+
+    .olist-dashboard-themes {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 5px 18px;
+      margin: 18px 0 0;
+      padding-left: 16px;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.55;
+    }
+
+    .olist-supporting-visuals {
+      display: grid;
+      gap: 22px;
+      margin: 30px 0 34px;
+    }
+
+    .olist-visual-artifact {
+      display: grid;
+      gap: 10px;
+      margin: 0;
+    }
+
+    .olist-visual-frame {
+      display: grid;
+      place-items: center;
+      min-height: 0;
+      padding: 16px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: #081121;
+    }
+
+    .olist-visual-artifact img {
+      display: block;
+      width: 100%;
+      max-width: 100%;
+      min-height: 0;
+      height: auto;
+      border-radius: 10px;
+      object-fit: contain;
+    }
+
+    .olist-visual-artifact figcaption {
+      color: #8fa2bb;
+      font-size: 12px;
+      font-style: italic;
+      line-height: 1.5;
+    }
+
+    .olist-visual-arrow {
+      display: grid;
+      place-items: center;
+      color: #a78bfa;
+      font-size: 22px;
+      line-height: 1;
+      margin: -8px 0;
+    }
+
+    .olist-visual-artifact.primary .olist-visual-frame {
+      padding: 20px;
+    }
+
+    .olist-final-dashboard-image {
+      display: block;
+      width: 100%;
+      max-width: 100%;
+      height: auto;
+      margin-top: 28px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: #081121;
+      object-fit: contain;
+    }
+
+    .olist-final-dashboard-caption {
+      margin: 10px 0 0;
+      color: #8fa2bb;
+      font-size: 12px;
+      font-style: italic;
+      line-height: 1.5;
+    }
+
+    .olist-cta-box {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-top: 28px;
+      padding: 24px 22px;
+      background: linear-gradient(145deg, rgba(13, 25, 48, 0.94), rgba(8, 17, 33, 0.9));
+    }
+
+    .olist-cta-box strong {
+      display: block;
+      color: #c4b5fd;
+      font-size: 13px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .olist-cta-box span {
+      display: block;
+      margin-top: 8px;
+      color: #aab8cb;
+      max-width: 620px;
+    }
+
+    .olist-impact-card {
+      margin-top: 28px;
+      padding: 28px 26px;
+      border: 1px solid #395173;
+      border-radius: 12px;
+      background: linear-gradient(145deg, rgba(13, 25, 48, 0.94), rgba(8, 17, 33, 0.9));
+    }
+
+    .olist-impact-card strong {
+      display: block;
+      color: #c4b5fd;
+      font-size: 13px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .olist-impact-card p {
+      max-width: 780px;
+      margin: 14px 0 0;
+      color: #aab8cb;
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    .olist-impact-takeaway {
+      margin-top: 18px;
+      padding: 20px 22px;
+      border: 1px solid #243653;
+      border-radius: 10px;
+      background: rgba(10, 19, 37, 0.75);
+    }
+
+    .olist-impact-takeaway strong {
+      color: var(--blue);
+    }
+
+    .olist-impact-takeaway p {
+      margin-top: 8px;
+      font-size: 13px;
+    }
+
+    .case-study-sidebar .side-card > a {
+      transition: color 0.2s ease, padding-left 0.2s ease;
+    }
+
+    .case-study-sidebar .side-card > a:hover {
+      color: var(--blue);
+      padding-left: 4px;
+    }
+
+    @media (max-width: 1399px) {
+      .insights-grid,
+      .olist-insights {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 1000px) {
+      .olist-step,
+      .olist-step.reverse {
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      }
+
+      .olist-final-step {
+        display: block;
+      }
+
+      .olist-final-dashboards {
+        width: 100%;
+      }
+
+      .olist-final-dashboard img {
+        height: auto;
+      }
+
+      .olist-dashboard-grid,
+      .olist-tech-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .olist-question-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .olist-methodology-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .olist-dataset-flow {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .olist-dataset-flow > div {
+        transform: rotate(90deg);
+      }
+
+      .olist-dashboard-card img {
+        min-height: 0;
+      }
+    }
+
+    @media (max-width: 899px) {
+      .insights-grid,
+      .olist-insights {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 700px) {
+      .olist-step,
+      .olist-step.reverse {
+        grid-template-columns: 1fr;
+        gap: 18px;
+        padding: 20px;
+      }
+
+      .olist-final-step {
+        display: block;
+      }
+
+      .olist-final-dashboards {
+        width: 100%;
+      }
+
+      .olist-final-dashboard img {
+        height: auto;
+      }
+
+      .olist-final-dashboard {
+        padding: 16px;
+      }
+
+      .olist-final-dashboard img {
+        padding: 10px;
+      }
+
+      .olist-step.reverse .olist-step-copy {
+        grid-row: 1;
+      }
+
+      .olist-step::after {
+        bottom: -25px;
+        height: 24px;
+      }
+
+      .olist-card {
+        min-height: 200px;
+      }
+
+      .olist-question-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .olist-methodology-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .olist-dataset-flow {
+        grid-template-columns: 1fr;
+      }
+
+      .olist-dataset-flow > div {
+        height: 24px;
+        transform: none;
+      }
+
+      .olist-dataset-visual {
+        padding: 16px;
+      }
+
+      .olist-dataset-dashboards {
+        margin-top: 64px;
+      }
+
+      .olist-dashboard-card {
+        padding: 22px;
+      }
+
+      .olist-tableau-result {
+        padding: 22px;
+      }
+
+      .olist-tableau-result-visual {
+        padding: 16px;
+      }
+
+      .olist-dashboard-themes,
+      .olist-supporting-visuals > div {
+        grid-template-columns: 1fr;
+      }
+
+      .olist-cta-box {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+    }
   </style>
 </head>
 <body class="rag-layout">
-  <header class="site-header"><a class="brand" href="../../index.html"><span class="brand-mark">HM</span><span><strong>HARDIK MEHTA</strong><small>DATA &amp; AI</small></span></a><nav class="main-nav" aria-label="Project navigation"><a href="../../index.html#projects">Projects</a></nav><div class="header-actions"><a href="#" data-placeholder-url="github-profile" aria-label="GitHub">GitHub</a><a href="#" data-placeholder-url="linkedin-profile" aria-label="LinkedIn">LinkedIn</a><a class="outline-btn small" href="#" data-placeholder-url="resume">Resume</a></div><details class="mobile-menu"><summary aria-label="Open navigation menu"><span></span><span></span><span></span></summary><div class="mobile-menu-panel"><nav aria-label="Mobile project navigation"><a href="../../index.html#projects">Projects</a></nav><div class="mobile-menu-links"><a href="#" data-placeholder-url="github-profile">GitHub</a><a href="#" data-placeholder-url="linkedin-profile">LinkedIn</a><a class="outline-btn small" href="#" data-placeholder-url="resume">Resume</a></div></div></details></header>
+  <header class="site-header">
+    <a class="brand" href="../../index.html"><span class="brand-mark">HM</span><span><strong>HARDIK MEHTA</strong><small>DATA &amp; AI</small></span></a>
+    <nav class="main-nav" aria-label="Project navigation"><a href="../../index.html#projects">Projects</a></nav>
+    <div class="header-actions"><a href="#" data-placeholder-url="github-profile" aria-label="GitHub">GitHub</a><a href="#" data-placeholder-url="linkedin-profile" aria-label="LinkedIn">LinkedIn</a><a class="outline-btn small" href="#" data-placeholder-url="resume">Resume</a></div>
+    <details class="mobile-menu"><summary aria-label="Open navigation menu"><span></span><span></span><span></span></summary><div class="mobile-menu-panel"><nav aria-label="Mobile project navigation"><a href="../../index.html#projects">Projects</a></nav><div class="mobile-menu-links"><a href="#" data-placeholder-url="github-profile">GitHub</a><a href="#" data-placeholder-url="linkedin-profile">LinkedIn</a><a class="outline-btn small" href="#" data-placeholder-url="resume">Resume</a></div></div></details>
+  </header>
 
   <main class="project-page rag-page">
-    <section class="project-hero section-shell"><a class="rag-back-link" href="../../index.html#projects">← Back to Projects</a><p class="eyebrow">PROJECT 05 • E-COMMERCE ANALYTICS</p><h1>Olist E-Commerce <span>Analytics</span></h1><p class="lead">An end-to-end e-commerce analytics project exploring marketplace performance, customer behavior, sellers, orders, payments, reviews, and delivery experience.</p><div class="tags large"><span>SQL</span><span>Python</span><span>Tableau</span><span>Data Analysis</span></div></section>
+    <section class="project-hero section-shell">
+      <a class="rag-back-link" href="../../index.html#projects">← Back to Projects</a>
+      <p class="eyebrow">PROJECT 06 · E-COMMERCE ANALYTICS</p>
+      <h1>Olist E-Commerce <span>Analytics</span></h1>
+      <p class="lead">An end-to-end analytics project focused on customer behavior, retention, customer value, segmentation, revenue performance, and coupon/experiment analysis using MySQL and Tableau.</p>
+      <div class="tags large"><span>MySQL</span><span>Tableau</span><span>Customer Analytics</span><span>SQL</span></div>
+    </section>
 
-    <section class="section-shell case-study-grid"><article class="case-study-main">
-      <section id="presentation" class="case-section"><p class="content-label">01 · PRESENTATION</p><h2>Presentation</h2><div class="rag-placeholder-card"><div class="rag-presentation-viewer" role="region" aria-label="Project presentation viewer"><p>The project presentation will be embedded here.</p></div></div></section>
-      <section id="overview" class="case-section"><p class="content-label">02 · PROJECT OVERVIEW</p><h2>Project Overview</h2><div class="olist-copy"><p>This project analyzes the Olist marketplace through multiple related datasets representing different parts of the order lifecycle.</p><p>SQL and Python support preparation and analysis, while Tableau is used to communicate results through business-facing visualizations.</p></div><div class="olist-placeholder tall"><strong>OLIST DATA ECOSYSTEM / PROJECT OVERVIEW</strong><span>Marketplace data ecosystem visual will be added here.</span></div></section>
-      <section id="business-questions" class="case-section"><p class="content-label">03 · BUSINESS QUESTIONS</p><h2>Business Questions</h2><div class="olist-cards"><article><span>SALES &amp; ORDERS</span><h3>Marketplace activity</h3><p>How is activity distributed across orders, sales, and time?</p></article><article><span>CUSTOMERS</span><h3>Purchasing behavior</h3><p>What patterns can be observed in customer purchasing behavior?</p></article><article><span>SELLERS &amp; PRODUCTS</span><h3>Marketplace contribution</h3><p>How do sellers and product categories contribute to activity?</p></article><article><span>DELIVERY</span><h3>Logistics</h3><p>What can the data reveal about delivery performance?</p></article><article><span>CUSTOMER EXPERIENCE</span><h3>Order outcomes</h3><p>What can reviews and order outcomes show about experience?</p></article></div></section>
-      <section id="data-relationships" class="case-section"><p class="content-label">04 · DATA &amp; RELATIONSHIPS</p><h2>Understanding the Data</h2><div class="olist-copy"><p>The Olist dataset consists of multiple related tables rather than a single flat dataset.</p><p>Understanding how these entities connect is an important foundation for analysis and visualization.</p></div><div class="olist-entities"><div>Customers</div><div>Orders</div><div>Order Items</div><div>Products</div><div>Sellers</div><div>Payments</div><div>Reviews</div><div>Geolocation</div></div><div class="olist-placeholder tall"><strong>OLIST DATA MODEL / TABLE RELATIONSHIPS</strong><span>Table relationship diagram will be added here.</span></div></section>
-      <section id="preparation" class="case-section"><p class="content-label">05 · DATA PREPARATION</p><h2>Data Preparation</h2><div class="olist-copy"><p>The raw marketplace data requires preparation before it can support analysis.</p><p>The workflow includes inspecting tables, understanding keys and relationships, joining related data, handling types, and preparing analytical fields.</p></div><div class="olist-grid"><div class="olist-placeholder tall"><strong>SQL DATA PREPARATION</strong><span>Preparation query screenshot will be added here.</span></div><div class="olist-placeholder tall"><strong>PREPARED ANALYTICAL DATASET</strong><span>Prepared dataset screenshot will be added here.</span></div></div></section>
-      <section id="sql-analysis" class="case-section"><p class="content-label">06 · SQL ANALYSIS</p><h2>SQL Analysis</h2><div class="olist-copy"><p>SQL was used to query and analyze the relational marketplace data.</p><p>The analysis was organized around transactions, customers, products, sellers, delivery, and customer-experience information.</p></div><div class="olist-cards"><article><span>01</span><h3>Orders &amp; Sales</h3><p>Analyze transactional activity and marketplace performance.</p></article><article><span>02</span><h3>Customers</h3><p>Explore customer purchasing patterns and behavior.</p></article><article><span>03</span><h3>Products &amp; Sellers</h3><p>Examine product and seller-level performance.</p></article><article><span>04</span><h3>Delivery &amp; Reviews</h3><p>Analyze logistics and customer-experience information.</p></article></div><div class="olist-grid"><div class="olist-placeholder tall"><strong>SQL QUERIES / ANALYTICAL WORKFLOW</strong><span>SQL workflow screenshot will be added here.</span></div><div class="olist-placeholder tall"><strong>SQL RESULTS</strong><span>Query result screenshot will be added here.</span></div></div></section>
-      <section id="python-analysis" class="case-section"><p class="content-label">07 · PYTHON ANALYSIS</p><h2>Python Analysis</h2><div class="olist-copy"><p>Python was used to continue the analysis and support data preparation, exploration, and visualization where appropriate.</p><p>The analytical workflow uses pandas, NumPy, matplotlib, and seaborn alongside the SQL work.</p></div><div class="olist-grid"><div class="olist-placeholder"><strong>EXPLORATORY ANALYSIS</strong><span>Python exploration screenshot will be added here.</span></div><div class="olist-placeholder"><strong>DISTRIBUTION ANALYSIS</strong><span>Distribution visualization will be added here.</span></div><div class="olist-placeholder"><strong>TREND / PERFORMANCE ANALYSIS</strong><span>Trend analysis screenshot will be added here.</span></div><div class="olist-placeholder"><strong>CUSTOMER / ORDER ANALYSIS</strong><span>Customer or order analysis screenshot will be added here.</span></div></div></section>
-      <section id="marketplace-performance" class="case-section"><p class="content-label">08 · BUSINESS ANALYSIS</p><h2>Marketplace Performance</h2><div class="olist-copy"><p>The analysis brings together different dimensions of the Olist marketplace to understand overall performance.</p></div><div class="olist-cards"><article><span>THEME 01</span><h3>Sales Performance</h3><p>Verified sales findings will be added from the project analysis.</p></article><article><span>THEME 02</span><h3>Order Activity</h3><p>Order activity findings will be documented here.</p></article><article><span>THEME 03</span><h3>Product &amp; Seller Performance</h3><p>Product and seller findings will be added here.</p></article><article><span>THEME 04</span><h3>Customer Experience</h3><p>Customer-experience findings will be documented here.</p></article></div></section>
-      <section id="delivery" class="case-section"><p class="content-label">09 · DELIVERY &amp; LOGISTICS</p><h2>Delivery &amp; Logistics</h2><div class="olist-copy"><p>Delivery is an important part of the marketplace experience because the order journey continues beyond the transaction itself.</p><p>The analysis examines delivery information alongside order and review data without assuming causal relationships.</p></div><div class="olist-grid"><div class="olist-placeholder tall"><strong>DELIVERY PERFORMANCE ANALYSIS</strong><span>Delivery analysis screenshot will be added here.</span></div><div class="olist-placeholder tall"><strong>DELIVERY TIME VISUALIZATION</strong><span>Delivery timing chart will be added here.</span></div><div class="olist-placeholder tall"><strong>REVIEW / DELIVERY ANALYSIS</strong><span>Review and delivery comparison will be added here.</span></div></div></section>
-      <section id="customer-experience" class="case-section"><p class="content-label">10 · CUSTOMER EXPERIENCE</p><h2>Customer Experience</h2><div class="olist-copy"><p>Customer reviews provide a way to examine post-purchase experience alongside order outcomes and delivery information.</p></div><div class="olist-cards"><article><span>REVIEWS</span><h3>Review signals</h3><p>Review analysis will be grounded in the available project data.</p></article><article><span>ORDER EXPERIENCE</span><h3>Order outcomes</h3><p>Order outcome patterns will be documented here.</p></article><article><span>DELIVERY EXPERIENCE</span><h3>Delivery context</h3><p>Delivery context will be examined alongside reviews.</p></article><article><span>CUSTOMER SATISFACTION</span><h3>Experience view</h3><p>Verified customer-experience findings will be added here.</p></article></div><div class="olist-grid"><div class="olist-placeholder tall"><strong>REVIEW ANALYSIS</strong><span>Review analysis screenshot will be added here.</span></div><div class="olist-placeholder tall"><strong>CUSTOMER EXPERIENCE VISUALIZATION</strong><span>Experience visualization will be added here.</span></div></div></section>
-      <section id="findings" class="case-section"><p class="content-label">11 · KEY FINDINGS</p><h2>Key Findings</h2><div class="olist-cards"><article><span>FINDING 01</span><h3>Marketplace performance insight</h3><p>Verified project finding will be added here.</p></article><article><span>FINDING 02</span><h3>Customer behavior insight</h3><p>Verified project finding will be added here.</p></article><article><span>FINDING 03</span><h3>Product / seller insight</h3><p>Verified project finding will be added here.</p></article><article><span>FINDING 04</span><h3>Delivery / experience insight</h3><p>Verified project finding will be added here.</p></article></div></section>
-      <section id="impact" class="case-section"><p class="content-label">12 · BUSINESS IMPACT / CONCLUSION</p><h2>Business Impact / Conclusion</h2><div class="olist-copy"><p>This project demonstrates how multiple marketplace data sources can be connected to create a more complete view of e-commerce performance.</p><p>Connecting transactions, customers, products, sellers, delivery, and reviews supports a broader understanding of marketplace operations and customer experience.</p></div><div class="olist-callout"><strong>FROM RELATIONAL DATA TO BUSINESS CONTEXT</strong><span>SQL, Python, and Tableau create a connected analytical workflow for exploring marketplace performance.</span></div></section>
-      <section id="walkthrough" class="case-section"><p class="content-label">13 · PROJECT WALKTHROUGH / VISUALS</p><h2>Project Walkthrough / Visuals</h2><div class="olist-placeholder tall"><strong>01 — OLIST DATASET / DATA MODEL</strong><span>Dataset and relationship screenshot will be added here.</span></div><div class="olist-placeholder tall"><strong>02 — DATA PREPARATION</strong><span>Preparation screenshot will be added here.</span></div><div class="olist-placeholder tall"><strong>03 — SQL ANALYSIS</strong><span>SQL screenshot will be added here.</span></div><div class="olist-placeholder tall"><strong>04 — PYTHON EXPLORATION</strong><span>Python analysis screenshot will be added here.</span></div><div class="olist-placeholder tall"><strong>05 — SALES / ORDER ANALYSIS</strong><span>Sales and order visual will be added here.</span></div><div class="olist-placeholder tall"><strong>06 — PRODUCT / SELLER ANALYSIS</strong><span>Product and seller visual will be added here.</span></div><div class="olist-placeholder tall"><strong>07 — DELIVERY ANALYSIS</strong><span>Delivery visual will be added here.</span></div><div class="olist-placeholder tall"><strong>08 — CUSTOMER REVIEW ANALYSIS</strong><span>Review analysis visual will be added here.</span></div><div class="olist-placeholder gif tall"><strong>09 — TABLEAU DASHBOARD</strong><span>Dashboard screen recording or screenshot will be added here.</span></div></section>
-      <section id="dashboard" class="case-section"><p class="content-label">14 · TABLEAU DASHBOARD</p><h2>Interactive Dashboard</h2><div class="olist-copy"><p>Tableau was used to turn the analytical results into an interactive business-facing visualization.</p><p>The dashboard placeholder will be replaced when the project view is connected.</p></div><div class="olist-placeholder tall"><strong>TABLEAU DASHBOARD</strong><span>Interactive dashboard screenshot will be added here.</span></div><a class="outline-btn" href="#">View Interactive Dashboard <span>→</span></a></section>
-      <section id="technology" class="case-section"><p class="content-label">15 · TECHNOLOGY</p><h2>Technology</h2><div class="tags large"><span>SQL</span><span>Python</span><span>pandas</span><span>NumPy</span><span>matplotlib</span><span>seaborn</span><span>Tableau</span></div></section>
-      <section id="readme" class="case-section"><p class="content-label">16 · DETAILED PROJECT DOCUMENTATION / README</p><h2>Detailed Project Documentation / README</h2><div class="olist-copy"><p>Detailed SQL analysis, Python work, data preparation, and dashboard documentation will be available here.</p></div><div class="case-placeholder">Detailed documentation will be added here.</div></section>
-      <section id="github" class="case-section"><p class="content-label">17 · GITHUB</p><h2>GitHub</h2><div class="case-placeholder">The project repository link will be added here.</div></section>
-      <a class="back-projects" href="../../index.html#projects">← Back to Projects</a>
-    </article><aside class="project-sidebar case-study-sidebar"><div class="side-card"><p class="eyebrow">ON THIS PAGE</p><a href="#presentation">Presentation</a><a href="#overview">Project Overview</a><a href="#business-questions">Business Questions</a><a href="#data-relationships">Understanding the Data</a><a href="#preparation">Data Preparation</a><a href="#sql-analysis">SQL Analysis</a><a href="#python-analysis">Python Analysis</a><a href="#marketplace-performance">Marketplace Performance</a><a href="#delivery">Delivery &amp; Logistics</a><a href="#customer-experience">Customer Experience</a><a href="#findings">Key Findings</a><a href="#impact">Business Impact / Conclusion</a><a href="#walkthrough">Project Walkthrough / Visuals</a><a href="#dashboard">Interactive Dashboard</a><a href="#technology">Technology</a><a href="#readme">Detailed Project Documentation / README</a><a href="#github">GitHub</a></div></aside></section>
+    <section class="section-shell case-study-grid">
+      <article class="case-study-main">
+        <section id="overview" class="case-section">
+          <p class="content-label">01 · PROJECT OVERVIEW</p>
+          <h2>Olist E-Commerce Analytics</h2>
+          <div class="olist-copy">
+            <p>An end-to-end analytics project focused on customer behavior, retention, customer value, segmentation, revenue performance, and coupon/experiment analysis using MySQL and Tableau.</p>
+          </div>
+
+          <p class="olist-intro">Olist's multi-table marketplace data was analyzed to understand customer behavior, retention, customer value, segmentation, revenue performance, and coupon experiment economics.</p>
+          <p class="olist-intro">The workflow moves from raw source data through validation, customer-level modeling, SQL analysis, and Tableau visualization to produce business-facing customer and experiment insights.</p>
+
+          <article class="olist-step">
+            <div class="olist-step-copy">
+              <span>01 · RAW DATASET</span>
+              <h3>Raw Olist Data</h3>
+              <p>The analysis begins with Olist's multi-table marketplace dataset, covering customers, orders, order items, payments, reviews, products, and related source tables.</p>
+            </div>
+            <div class="olist-step-visual"><video src="../../assets/Olist_Raw.mp4" autoplay muted loop playsinline controls></video></div>
+          </article>
+          <div class="olist-stage-arrow" aria-hidden="true">↓</div>
+
+          <article class="olist-step reverse">
+            <div class="olist-step-visual"><video src="../../assets/data%20quality%20check%201%20-5%20.mp4" autoplay muted loop playsinline controls></video></div>
+            <div class="olist-step-copy">
+              <span>02 · DATA CLEANING &amp; PREPARATION</span>
+              <h3>Validate &amp; Prepare the Data</h3>
+              <p>Before analysis, the source tables were validated for consistency across customers, orders, order items, and payments. Duplicate and missing-value checks were used to verify the analytical foundation.</p>
+              <p class="olist-step-detail">The validated data was prepared for customer-level analysis and the creation of a Customer 360 analytical layer.</p>
+            </div>
+          </article>
+          <div class="olist-stage-arrow" aria-hidden="true">↓</div>
+
+          <article class="olist-step">
+            <div class="olist-step-copy">
+              <span>03 · DATA MODEL / RELATIONSHIPS</span>
+              <h3>Olist Data Model</h3>
+              <p>The validated source tables were organized into a structured analytical model connecting customer, order, item, payment, review, and product information with customer-level analytical tables.</p>
+              <p class="olist-step-detail">The model provides the foundation for Customer 360, RFM analysis, segmentation, and downstream reporting.</p>
+            </div>
+            <div class="olist-step-visual"><video src="../../assets/EER_DIAGRAM.mp4" autoplay muted loop playsinline controls></video></div>
+          </article>
+          <div class="olist-stage-arrow" aria-hidden="true">↓</div>
+
+          <article class="olist-step reverse">
+            <div class="olist-step-visual"><video src="../../assets/sql_query_olist.mp4" autoplay muted loop playsinline controls></video></div>
+            <div class="olist-step-copy">
+              <span>04 · SQL ANALYSIS</span>
+              <h3>Customer &amp; Revenue Analysis</h3>
+              <p>MySQL was used to turn the analytical model into customer and business insights across retention, RFM/customer value, segmentation, and revenue performance.</p>
+              <div class="olist-step-detail">
+                <strong>Customer Retention</strong><p>One-time vs repeat customer behavior.</p>
+                <strong>RFM / Customer Value</strong><p>Recency, frequency, monetary value, and customer segmentation.</p>
+                <strong>Revenue Analysis</strong><p>Revenue performance across customer segments and geography.</p>
+              </div>
+            </div>
+          </article>
+          <div class="olist-stage-arrow" aria-hidden="true">↓</div>
+
+          <article class="olist-step olist-final-step">
+            <span>05 · TABLEAU DASHBOARDS</span>
+            <h3>Customer &amp; Retention Analytics</h3>
+            <p>The SQL-derived analytical layer is translated into interactive Tableau dashboards covering customer retention, segmentation, customer value, revenue contribution, and coupon/experiment performance.</p>
+            <p class="olist-step-detail">The final dashboards turn the analysis into business-facing customer and experiment insights.</p>
+            <div class="olist-final-dashboards">
+              <figure class="olist-final-dashboard">
+                <span>CUSTOMER &amp; RETENTION ANALYTICS</span>
+                <h4>Customer &amp; Retention Analytics</h4>
+                <p>The customer analytics dashboard provides a customer-level view of retention, segmentation, customer value, and revenue contribution.</p>
+                <img src="../../assets/Customer_Retention_dashboard.png" alt="Final Customer and Retention Analytics Tableau dashboard">
+                <figcaption>Customer &amp; Retention Analytics — customer-level retention, segmentation, customer value, and revenue analysis.</figcaption>
+                <a class="outline-btn" href="https://public.tableau.com/app/profile/hardik.mehta2597/viz/Olist_17870730495300/CustomerRetentionAnalytics" target="_blank" rel="noopener noreferrer">View Customer Dashboard →</a>
+              </figure>
+              <div class="olist-stage-arrow" aria-hidden="true">↓</div>
+              <figure class="olist-final-dashboard">
+                <span>COUPON / EXPERIMENT ANALYSIS</span>
+                <h4>Coupon / Experiment Analysis</h4>
+                <p>The coupon experiment dashboard evaluates treatment versus control performance across retention lift, incremental customer value, coupon cost, break-even economics, and ROI.</p>
+                <img src="../../assets/Coupon%20experiment.png" alt="Final Coupon and Experiment Analysis Tableau dashboard">
+                <figcaption>Coupon / Experiment Analysis — treatment vs control performance, retention lift, coupon economics, break-even pricing, and ROI.</figcaption>
+                <a class="outline-btn" href="https://public.tableau.com/app/profile/hardik.mehta2597/viz/Olist_Coupon/CouponExperimentA-BTestingDashboard" target="_blank" rel="noopener noreferrer">View Experiment Dashboard →</a>
+              </figure>
+            </div>
+          </article>
+          <div class="olist-stage-arrow" aria-hidden="true">↓</div>
+
+        <section id="business-question" class="case-section">
+          <p class="content-label">04 · BUSINESS QUESTION</p>
+          <h2>Business Question</h2>
+          <div class="olist-business-copy">
+            <p>How can Olist use customer behavior, retention, segmentation, and coupon performance analysis to improve customer value and make better retention decisions?</p>
+            <p>The analysis focuses on understanding how customers behave after their first purchase, which customer segments contribute the most value, and whether coupon-driven retention creates enough incremental value to justify its cost.</p>
+          </div>
+          <div class="olist-question-grid">
+            <article><span>01</span><h3>CUSTOMER RETENTION</h3><p>How large is the repeat-customer opportunity, and where can Olist improve customer retention?</p></article>
+            <article><span>02</span><h3>CUSTOMER VALUE</h3><p>Which customer segments contribute the most revenue and customer value, and how do their behaviors differ?</p></article>
+            <article><span>03</span><h3>COUPON ECONOMICS</h3><p>Does the increase in repeat behavior from the coupon justify the economic cost of the incentive?</p></article>
+          </div>
+          <div class="olist-decision-principle">
+            <strong>Decision principle</strong>
+            <span>Connect customer retention and segmentation insights with the coupon experiment results before recommending retention-focused actions.</span>
+          </div>
+        </section>
+
+          <section id="dataset" class="olist-stage-section">
+            <p class="content-label">05 · DATASET</p>
+            <h2>Dataset &amp; Analytical Views</h2>
+            <div class="olist-business-copy">
+              <p>The Olist dataset contains multiple related marketplace tables covering customers, orders, order items, payments, products, sellers, and reviews. The data was cleaned, validated, modeled, and transformed into an analytical layer for customer and e-commerce analysis.</p>
+              <p>The resulting analytical layer supports two complementary Tableau views: Customer &amp; Retention Analytics and Coupon / Experiment Analysis.</p>
+            </div>
+
+            <div class="olist-dataset-flow" aria-label="Dataset to Tableau workflow">
+              <article><span>01</span><strong>RAW DATASET</strong><p>Olist marketplace source tables covering customers, orders, items, payments, products, sellers, and reviews.</p></article>
+              <div aria-hidden="true">→</div>
+              <article><span>02</span><strong>CLEAN &amp; PREPARE</strong><p>Data-quality checks, consistency validation, cleaning, and preparation of the source tables for analysis.</p></article>
+              <div aria-hidden="true">→</div>
+              <article><span>03</span><strong>ANALYTICAL LAYER</strong><p>Customer-level metrics, retention measures, RFM-style segmentation, customer value, revenue analysis, and coupon experiment metrics.</p></article>
+              <div aria-hidden="true">→</div>
+              <article><span>04</span><strong>TABLEAU</strong><p>Business-facing dashboards that turn the analytical results into interactive customer and experiment insights.</p></article>
+            </div>
+
+            <div class="olist-dataset-visuals">
+              <figure class="olist-dataset-visual">
+                <img src="../../assets/break-even-coupon.png" alt="Break-even coupon analysis">
+                <figcaption>Break-Even Coupon Analysis</figcaption>
+              </figure>
+              <div class="olist-dataset-visual-arrow" aria-hidden="true">↓</div>
+              <figure class="olist-dataset-visual">
+                <img src="../../assets/Coupon%20Conversion%20rate.png" alt="Coupon conversion rate">
+                <figcaption>Coupon Conversion Rate</figcaption>
+              </figure>
+              <div class="olist-dataset-visual-arrow" aria-hidden="true">↓</div>
+              <figure class="olist-dataset-visual">
+                <img src="../../assets/customer_value.png" alt="Customer value by segment">
+                <figcaption>Customer Value by Segment</figcaption>
+              </figure>
+              <div class="olist-dataset-visual-arrow" aria-hidden="true">↓</div>
+              <figure class="olist-dataset-visual">
+                <img src="../../assets/Revenue%20by%20segment.png" alt="Revenue by customer segment">
+                <figcaption>Revenue by Customer Segment</figcaption>
+              </figure>
+              <div class="olist-dataset-visual-arrow" aria-hidden="true">↓</div>
+              <figure class="olist-dataset-visual">
+                <img src="../../assets/segment_distribution.png" alt="Customer segment distribution">
+                <figcaption>Customer Segment Distribution</figcaption>
+              </figure>
+            </div>
+
+          </section>
+          <div class="olist-stage-arrow" aria-hidden="true">↓</div>
+
+          <section id="insights" class="olist-stage-section">
+          <p class="content-label">07 · KEY INSIGHTS</p>
+          <h2>Business Insights</h2>
+          <div class="insights-grid olist-insights">
+            <article class="olist-card">
+              <span>Customer Retention</span>
+              <h3>Retention Opportunity</h3>
+              <p>Repeat purchasing represents a relatively small share of the customer base, highlighting an opportunity for stronger retention-focused strategies.</p>
+            </article>
+
+            <article class="olist-card">
+              <span>Customer Segmentation</span>
+              <h3>Customer Value Varies</h3>
+              <p>Customer segments differ substantially in size, revenue contribution, and average customer value, supporting differentiated customer strategies.</p>
+            </article>
+
+            <article class="olist-card">
+              <span>Coupon Lift</span>
+              <h3>Positive Retention Response</h3>
+              <p>The treatment group shows a higher 90-day repeat rate than the control group, indicating a positive retention response to the coupon.</p>
+            </article>
+
+            <article class="olist-card">
+              <span>Coupon Economics</span>
+              <h3>Retention Lift vs Cost</h3>
+              <p>The coupon improves repeat behavior, but the modeled coupon cost exceeds the incremental customer value at the tested coupon value, resulting in negative ROI.</p>
+            </article>
+          </div>
+          </section>
+
+        <section id="impact" class="case-section">
+          <p class="content-label">08 · BUSINESS IMPACT / CONCLUSION</p>
+          <h2>Business Impact / Conclusion</h2>
+          <div class="olist-business-copy">
+            <p>The analysis combines customer-level retention, segmentation, customer value, revenue contribution, and coupon performance to identify where the business can improve customer relationships and make more informed commercial decisions.</p>
+            <p>The results show that customer value and revenue are concentrated across specific customer segments, while a large share of customers falls into recent-buyer, other, or lost-customer groups. This creates opportunities to improve retention, strengthen repeat purchasing, and focus resources on higher-value customer segments.</p>
+          </div>
+          <div class="olist-impact-card">
+            <strong>BUSINESS RECOMMENDATION</strong>
+            <p>Prioritize retention and customer-value strategies over broad, undifferentiated promotions. Focus re-engagement efforts on valuable at-risk and lost customers, strengthen relationships with high-value customers, and use customer segmentation to guide targeted campaigns.</p>
+            <p>For coupon-based promotions, the analysis indicates that higher coupon value can improve repeat purchasing but does not necessarily produce positive economics. The observed break-even coupon value is approximately ₹1.17, while the ₹10 coupon scenario produces negative ROI. Coupon strategies should therefore be evaluated against incremental customer value rather than retention lift alone.</p>
+          </div>
+          <div class="olist-impact-takeaway">
+            <strong>KEY TAKEAWAY</strong>
+            <p>The strongest opportunity is to connect customer retention with customer economics — increasing repeat purchases while ensuring that the cost of incentives does not outweigh the incremental customer value.</p>
+          </div>
+        </section>
+
+        <section id="explore-dataset" class="case-section">
+          <p class="content-label">08 · DATASET</p>
+          <h2>Explore Dataset</h2>
+          <div class="olist-business-copy">
+            <p>This project uses the Brazilian E-Commerce Public Dataset by Olist, covering approximately 100,000 orders across multiple related datasets. The data includes customers, orders, order items, payments, products, sellers, reviews, and geolocation information.</p>
+          </div>
+          <div class="olist-cta-box">
+            <div>
+              <strong>Brazilian E-Commerce Public Dataset by Olist</strong>
+              <span>Explore the original dataset used as the foundation for the customer, retention, revenue, segmentation, and e-commerce analysis in this project.</span>
+            </div>
+            <a class="outline-btn" href="https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce" target="_blank" rel="noopener noreferrer">Explore Dataset →</a>
+          </div>
+        </section>
+
+        <a class="back-projects" href="../../index.html#projects">← Back to Projects</a>
+      </article>
+
+      <aside class="project-sidebar case-study-sidebar">
+        <div class="side-card">
+          <p class="eyebrow">ON THIS PAGE</p>
+          <a href="#overview">Project Overview</a>
+          <a href="#business-question">Business Question</a>
+          <a href="#dataset">Dataset &amp; Analytical Views</a>
+          <a href="#insights">Key Insights</a>
+          <a href="#impact">Business Impact / Conclusion</a>
+          <a href="#explore-dataset">Explore Dataset</a>
+        </div>
+      </aside>
+    </section>
   </main>
+
   <footer class="site-footer">© 2026 Hardik Mehta · Data Analytics Portfolio</footer>
   <script src="../../script.js"></script>
 </body>
